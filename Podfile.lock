@@ -1,0 +1,17 @@
+PODS:
+  - AudioPlayerSwift (1.2.2)
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.6)
+
+DEPENDENCIES:
+  - AudioPlayerSwift
+  - Crashlytics
+  - Fabric
+
+SPEC CHECKSUMS:
+  AudioPlayerSwift: 34798110d2c8b6119c7500023cf609936c98b7e5
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  Fabric: 1abc1e59f11fa39ede6f690ef7309d8563e3ec59
+
+COCOAPODS: 0.39.0

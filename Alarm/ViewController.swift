@@ -7,19 +7,59 @@
 //
 
 import UIKit
+import AudioPlayer
 
 class ViewController: UIViewController {
-
+    @IBOutlet var alarmLabel: UILabel!
+    @IBOutlet var datePicker: UIDatePicker!
+    var alarmDate: NSDate?
+    var audioPlayer: AudioPlayer?
+    var timer: NSTimer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func setAlarm(sender: AnyObject) {
+        
+        if (self.audioPlayer?.playing == true) {
+            self.audioPlayer?.stop()
+        }
+        
+        if (self.timer != nil) {
+            self.timer?.invalidate()
+        }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        UIApplication.sharedApplication().idleTimerDisabled = true
+
+        print(datePicker.date)
+        alarmDate = datePicker.date
+        self.timer = NSTimer(fireDate: datePicker.date, interval: 0, target: self, selector: "playAlarm", userInfo: nil, repeats: false)
+        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+        self.alarmLabel.text = "Alarm set \(datePicker.date)"
     }
-
-
+    
+    func playAlarm() {
+        do {
+            self.audioPlayer = try AudioPlayer(fileName:"wakeapp.mp3")
+            // Start playing
+            self.audioPlayer!.play()
+            // Let the phone go to sleep if needed
+            UIApplication.sharedApplication().idleTimerDisabled = false
+        } catch {
+            print("oh-oh")
+        }
+    }
+    
+    @IBAction func stop(sender: AnyObject) {
+        if (self.audioPlayer?.playing == true) {
+            self.audioPlayer?.stop()
+        }
+        if (self.timer != nil) {
+            self.timer?.invalidate()
+        }
+        // Let the phone go to sleep if needed
+        UIApplication.sharedApplication().idleTimerDisabled = false
+    }
 }
 
