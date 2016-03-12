@@ -16,15 +16,15 @@ enum AudioTrackType {
 }
 
 class AudioTrack: NSObject {
-    var audioTrackType: AudioTrackType
+    var audioTrackType: AudioTrackType // we might not ever need this but useful if instrospection is needed
     var fileName: String
-    var startMinute: Float
+    var startMinute: NSTimeInterval
     var startVolume: Float
     var finishVolume: Float
     var audioPlayer: AudioPlayer?
     var timer: NSTimer?
 
-    init(type: AudioTrackType, fileName: String, startMinute: Float, startVolume: Float, finishVolume: Float) {
+    init(type: AudioTrackType, fileName: String, startMinute: NSTimeInterval, startVolume: Float, finishVolume: Float) {
         self.audioTrackType = type
         self.fileName = fileName
         self.startMinute = startMinute
@@ -35,6 +35,5 @@ class AudioTrack: NSObject {
         } catch {
             print("oh-oh")
         }
-        // TODO: Start the timer here depending on when it starts
     }
 }

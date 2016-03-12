@@ -14,10 +14,10 @@ class Alarm: NSObject {
     var ambient: AudioTrack
     var theme: AudioTrack
     var voice: AudioTrack
-    var totalTime: Float
+    var totalTime: NSTimeInterval
     var timer: NSTimer?
 
-    init(ambient: AudioTrack, theme: AudioTrack, voice: AudioTrack, totalTime: Float) {
+    init(ambient: AudioTrack, theme: AudioTrack, voice: AudioTrack, totalTime: NSTimeInterval) {
         self.ambient = ambient
         self.theme = theme
         self.voice = voice
@@ -31,19 +31,17 @@ class Alarm: NSObject {
             self.stop()
         }
         
-        if (self.timer != nil) {
-            self.timer?.invalidate()
-        }
-        
-        self.timer = NSTimer(fireDate: dateSet, interval: 0, target: self, selector: "playAlarm", userInfo: nil, repeats: false)
+        self.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.totalTime), interval: 0, target: self, selector: "stop", userInfo: nil, repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
-    }
-    
-    func playAlarm() {
-        self.ambient.audioPlayer?.play()
-        self.theme.audioPlayer?.play()
-        self.voice.audioPlayer?.play()
-    }
+        
+        // TODO: Move this to the set method of timer for each ambient
+        self.ambient.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.ambient.startMinute), interval: 0.0, target: self.ambient.audioPlayer!, selector: "play", userInfo: nil, repeats: false)
+        NSRunLoop.mainRunLoop().addTimer(self.ambient.timer!, forMode: NSRunLoopCommonModes)
+        self.theme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.theme.startMinute), interval: 0.0, target: self.theme.audioPlayer!, selector: "play", userInfo: nil, repeats: false)
+        NSRunLoop.mainRunLoop().addTimer(self.theme.timer!, forMode: NSRunLoopCommonModes)
+        self.voice.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.voice.startMinute), interval: 0.0, target: self.voice.audioPlayer!, selector: "play", userInfo: nil, repeats: false)
+        NSRunLoop.mainRunLoop().addTimer(self.voice.timer!, forMode: NSRunLoopCommonModes)
+}
     
     func playing() -> Bool {
         return (self.ambient.audioPlayer?.playing == true ||
@@ -56,8 +54,18 @@ class Alarm: NSObject {
         self.theme.audioPlayer?.stop()
         self.voice.audioPlayer?.stop()
        
-        if (self.timer != nil) {
-            self.timer?.invalidate()
+        if (self.ambient.timer != nil &&
+            self.theme.timer != nil &&
+            self.voice.timer != nil &&
+            self.timer != nil) {
+                
+            
+                self.ambient.timer?.invalidate()
+                self.ambient.timer = nil
+                self.theme.timer?.invalidate()
+                self.theme.timer = nil
+                self.voice.timer?.invalidate()
+                self.voice.timer = nil
         }
     }
     
