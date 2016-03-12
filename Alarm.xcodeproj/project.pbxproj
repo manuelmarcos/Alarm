@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F3932F31C8E2CE800C1DCC6 /* wakeapp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F3932F21C8E2CE800C1DCC6 /* wakeapp.mp3 */; };
 		9FA896981C86302500AEF51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896971C86302500AEF51F /* AppDelegate.swift */; };
 		9FA8969A1C86302500AEF51F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896991C86302500AEF51F /* ViewController.swift */; };
 		9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8969B1C86302500AEF51F /* Main.storyboard */; };
@@ -15,12 +14,12 @@
 		9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA896A01C86302500AEF51F /* LaunchScreen.storyboard */; };
 		9FA896AD1C86302500AEF51F /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896AC1C86302500AEF51F /* AlarmTests.swift */; };
 		9FA896B81C86302500AEF51F /* AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896B71C86302500AEF51F /* AlarmUITests.swift */; };
+		9FB299991C94607E00C6D4D2 /* theme1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FB299961C94607E00C6D4D2 /* theme1.mp3 */; };
+		9FB2999A1C94607E00C6D4D2 /* theme2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FB299971C94607E00C6D4D2 /* theme2.mp3 */; };
+		9FB2999B1C94607E00C6D4D2 /* theme3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FB299981C94607E00C6D4D2 /* theme3.mp3 */; };
 		9FE940E71C90AA0600DD69A8 /* ambient1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940E41C90AA0600DD69A8 /* ambient1.mp3 */; };
 		9FE940E81C90AA0600DD69A8 /* ambient2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940E51C90AA0600DD69A8 /* ambient2.mp3 */; };
 		9FE940E91C90AA0600DD69A8 /* ambient3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940E61C90AA0600DD69A8 /* ambient3.mp3 */; };
-		9FE940ED1C90AA1600DD69A8 /* theme1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940EA1C90AA1600DD69A8 /* theme1.mp3 */; };
-		9FE940EE1C90AA1600DD69A8 /* theme2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940EB1C90AA1600DD69A8 /* theme2.mp3 */; };
-		9FE940EF1C90AA1600DD69A8 /* theme3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940EC1C90AA1600DD69A8 /* theme3.mp3 */; };
 		9FE940F31C90AA2700DD69A8 /* voice1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F01C90AA2700DD69A8 /* voice1.mp3 */; };
 		9FE940F41C90AA2700DD69A8 /* voice2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F11C90AA2700DD69A8 /* voice2.mp3 */; };
 		9FE940F51C90AA2700DD69A8 /* voice3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F21C90AA2700DD69A8 /* voice3.wav */; };
@@ -48,7 +47,6 @@
 		4B59CD66BD5E895336EFF690 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F1ED0B4611F74D735DFD3EB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBC5D31F711DA7198BED1DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		9F3932F21C8E2CE800C1DCC6 /* wakeapp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wakeapp.mp3; sourceTree = "<group>"; };
 		9FA896941C86302500AEF51F /* Wake App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wake App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA896971C86302500AEF51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FA896991C86302500AEF51F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,12 +60,12 @@
 		9FA896B31C86302500AEF51F /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA896B71C86302500AEF51F /* AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmUITests.swift; sourceTree = "<group>"; };
 		9FA896B91C86302500AEF51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FB299961C94607E00C6D4D2 /* theme1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme1.mp3; sourceTree = "<group>"; };
+		9FB299971C94607E00C6D4D2 /* theme2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme2.mp3; sourceTree = "<group>"; };
+		9FB299981C94607E00C6D4D2 /* theme3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme3.mp3; sourceTree = "<group>"; };
 		9FE940E41C90AA0600DD69A8 /* ambient1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient1.mp3; sourceTree = "<group>"; };
 		9FE940E51C90AA0600DD69A8 /* ambient2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient2.mp3; sourceTree = "<group>"; };
 		9FE940E61C90AA0600DD69A8 /* ambient3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient3.mp3; sourceTree = "<group>"; };
-		9FE940EA1C90AA1600DD69A8 /* theme1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme1.mp3; sourceTree = "<group>"; };
-		9FE940EB1C90AA1600DD69A8 /* theme2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme2.mp3; sourceTree = "<group>"; };
-		9FE940EC1C90AA1600DD69A8 /* theme3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme3.mp3; sourceTree = "<group>"; };
 		9FE940F01C90AA2700DD69A8 /* voice1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice1.mp3; sourceTree = "<group>"; };
 		9FE940F11C90AA2700DD69A8 /* voice2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice2.mp3; sourceTree = "<group>"; };
 		9FE940F21C90AA2700DD69A8 /* voice3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = voice3.wav; sourceTree = "<group>"; };
@@ -111,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				9FA896961C86302500AEF51F /* Alarm */,
+				9FF7FF801C945E37009142D9 /* Assets */,
+				9FF7FF841C945EB9009142D9 /* Supporting Files */,
 				9FA896AB1C86302500AEF51F /* AlarmTests */,
 				9FA896B61C86302500AEF51F /* AlarmUITests */,
 				9FA896951C86302500AEF51F /* Products */,
@@ -132,14 +132,11 @@
 		9FA896961C86302500AEF51F /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				9FE940E01C90A9C500DD69A8 /* Sounds */,
-				9F3932F21C8E2CE800C1DCC6 /* wakeapp.mp3 */,
 				9FA896971C86302500AEF51F /* AppDelegate.swift */,
-				9FA896991C86302500AEF51F /* ViewController.swift */,
-				9FA8969B1C86302500AEF51F /* Main.storyboard */,
-				9FA8969E1C86302500AEF51F /* Assets.xcassets */,
-				9FA896A01C86302500AEF51F /* LaunchScreen.storyboard */,
-				9FA896A31C86302500AEF51F /* Info.plist */,
+				9FF7FF7F1C945E32009142D9 /* Managers */,
+				9FF7FF811C945E55009142D9 /* Models */,
+				9FF7FF831C945E64009142D9 /* Utilities */,
+				9FF7FF821C945E5C009142D9 /* Views */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -185,9 +182,9 @@
 		9FE940E21C90A9E400DD69A8 /* theme */ = {
 			isa = PBXGroup;
 			children = (
-				9FE940EA1C90AA1600DD69A8 /* theme1.mp3 */,
-				9FE940EB1C90AA1600DD69A8 /* theme2.mp3 */,
-				9FE940EC1C90AA1600DD69A8 /* theme3.mp3 */,
+				9FB299961C94607E00C6D4D2 /* theme1.mp3 */,
+				9FB299971C94607E00C6D4D2 /* theme2.mp3 */,
+				9FB299981C94607E00C6D4D2 /* theme3.mp3 */,
 			);
 			name = theme;
 			sourceTree = "<group>";
@@ -200,6 +197,56 @@
 				9FE940F21C90AA2700DD69A8 /* voice3.wav */,
 			);
 			name = voice;
+			sourceTree = "<group>";
+		};
+		9FF7FF7F1C945E32009142D9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		9FF7FF801C945E37009142D9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9FA896A01C86302500AEF51F /* LaunchScreen.storyboard */,
+				9FA8969E1C86302500AEF51F /* Assets.xcassets */,
+				9FE940E01C90A9C500DD69A8 /* Sounds */,
+			);
+			name = Assets;
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		9FF7FF811C945E55009142D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9FF7FF821C945E5C009142D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9FA896991C86302500AEF51F /* ViewController.swift */,
+				9FA8969B1C86302500AEF51F /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9FF7FF831C945E64009142D9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		9FF7FF841C945EB9009142D9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FA896A31C86302500AEF51F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		B510AB5D9CABFE42B9262ADA /* Pods */ = {
@@ -320,19 +367,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB299991C94607E00C6D4D2 /* theme1.mp3 in Resources */,
 				9FE940F41C90AA2700DD69A8 /* voice2.mp3 in Resources */,
-				9FE940EF1C90AA1600DD69A8 /* theme3.mp3 in Resources */,
 				9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */,
 				9FE940E91C90AA0600DD69A8 /* ambient3.mp3 in Resources */,
-				9FE940EE1C90AA1600DD69A8 /* theme2.mp3 in Resources */,
 				9FE940F51C90AA2700DD69A8 /* voice3.wav in Resources */,
 				9FE940E71C90AA0600DD69A8 /* ambient1.mp3 in Resources */,
 				9FA8969F1C86302500AEF51F /* Assets.xcassets in Resources */,
-				9FE940ED1C90AA1600DD69A8 /* theme1.mp3 in Resources */,
-				9F3932F31C8E2CE800C1DCC6 /* wakeapp.mp3 in Resources */,
 				9FE940F31C90AA2700DD69A8 /* voice1.mp3 in Resources */,
 				9FE940E81C90AA0600DD69A8 /* ambient2.mp3 in Resources */,
 				9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */,
+				9FB2999B1C94607E00C6D4D2 /* theme3.mp3 in Resources */,
+				9FB2999A1C94607E00C6D4D2 /* theme2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
