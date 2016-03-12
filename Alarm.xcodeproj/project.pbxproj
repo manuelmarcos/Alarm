@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */; };
+		9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */; };
 		9FA896981C86302500AEF51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896971C86302500AEF51F /* AppDelegate.swift */; };
-		9FA8969A1C86302500AEF51F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896991C86302500AEF51F /* ViewController.swift */; };
+		9FA8969A1C86302500AEF51F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896991C86302500AEF51F /* AlarmViewController.swift */; };
 		9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8969B1C86302500AEF51F /* Main.storyboard */; };
 		9FA8969F1C86302500AEF51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8969E1C86302500AEF51F /* Assets.xcassets */; };
 		9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA896A01C86302500AEF51F /* LaunchScreen.storyboard */; };
@@ -47,9 +49,11 @@
 		4B59CD66BD5E895336EFF690 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F1ED0B4611F74D735DFD3EB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBC5D31F711DA7198BED1DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigureViewController.storyboard; sourceTree = "<group>"; };
+		9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		9FA896941C86302500AEF51F /* Wake App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wake App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA896971C86302500AEF51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9FA896991C86302500AEF51F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FA896991C86302500AEF51F /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		9FA8969C1C86302500AEF51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9FA8969E1C86302500AEF51F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FA896A11C86302500AEF51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -227,8 +231,10 @@
 		9FF7FF821C945E5C009142D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9FA896991C86302500AEF51F /* ViewController.swift */,
 				9FA8969B1C86302500AEF51F /* Main.storyboard */,
+				9FA896991C86302500AEF51F /* AlarmViewController.swift */,
+				9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */,
+				9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */,
 				9FB2999B1C94607E00C6D4D2 /* theme3.mp3 in Resources */,
 				9FB2999A1C94607E00C6D4D2 /* theme2.mp3 in Resources */,
+				9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,8 +471,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FA8969A1C86302500AEF51F /* ViewController.swift in Sources */,
+				9FA8969A1C86302500AEF51F /* AlarmViewController.swift in Sources */,
 				9FA896981C86302500AEF51F /* AppDelegate.swift in Sources */,
+				9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

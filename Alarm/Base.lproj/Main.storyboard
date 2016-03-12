@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Alarm View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AlarmViewController" customModule="Wake_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -49,6 +48,15 @@
                                     <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKZ-f2-F6J"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btZ-rN-boU">
+                                <rect key="frame" x="246" y="516" width="109" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Configure"/>
+                                <connections>
+                                    <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SYU-Jt-Onr"/>
+                                    <segue destination="OMU-hC-r8f" kind="presentation" id="qxK-tZ-hA1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -60,8 +68,10 @@
                             <constraint firstItem="ddM-1v-R7v" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZHt-ex-udU"/>
                             <constraint firstItem="ddM-1v-R7v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cKY-9W-3bk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ddM-1v-R7v" secondAttribute="trailing" id="ex9-SG-Az3"/>
+                            <constraint firstItem="btZ-rN-boU" firstAttribute="top" secondItem="9c8-gS-bxz" secondAttribute="bottom" constant="8" id="kYL-rf-KU6"/>
                             <constraint firstItem="ddM-1v-R7v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kxF-US-hxh"/>
                             <constraint firstItem="9c8-gS-bxz" firstAttribute="top" secondItem="IgD-ZJ-Qon" secondAttribute="bottom" constant="8" id="tsB-oW-PEn"/>
+                            <constraint firstItem="btZ-rN-boU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4b-Oq-on6"/>
                             <constraint firstItem="IgD-ZJ-Qon" firstAttribute="top" secondItem="ddM-1v-R7v" secondAttribute="bottom" constant="8" id="u5W-2r-WAh"/>
                             <constraint firstItem="ddM-1v-R7v" firstAttribute="top" secondItem="H31-hW-MCe" secondAttribute="bottom" constant="39" id="yi8-Zc-01w"/>
                             <constraint firstItem="ddM-1v-R7v" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zKz-lu-WN2"/>
@@ -82,6 +92,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="325" y="387"/>
+        </scene>
+        <!--ConfigureViewController-->
+        <scene sceneID="GdC-CS-QAS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ConfigureViewController" id="OMU-hC-r8f" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2b-Zp-fYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="387"/>
         </scene>
     </scenes>
 </document>

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AlarmViewController.swift
 //  Alarm
 //
 //  Created by Manuel Marcos Regalado on 01/03/2016.
@@ -10,7 +10,7 @@ import UIKit
 import AudioPlayer
 import MediaPlayer
 
-class ViewController: UIViewController {
+class AlarmViewController: UIViewController {
     @IBOutlet var alarmLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
     var audioPlayer: AudioPlayer?
