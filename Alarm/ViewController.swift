@@ -8,11 +8,11 @@
 
 import UIKit
 import AudioPlayer
+import MediaPlayer
 
 class ViewController: UIViewController {
     @IBOutlet var alarmLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
-    var alarmDate: NSDate?
     var audioPlayer: AudioPlayer?
     var timer: NSTimer?
     
@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     
     @IBAction func setAlarm(sender: AnyObject) {
         
+        self.setSystemSettings()
+        
         if (self.audioPlayer?.playing == true) {
             self.audioPlayer?.stop()
         }
@@ -30,10 +32,7 @@ class ViewController: UIViewController {
             self.timer?.invalidate()
         }
 
-        UIApplication.sharedApplication().idleTimerDisabled = true
-
         print(datePicker.date)
-        alarmDate = datePicker.date
         self.timer = NSTimer(fireDate: datePicker.date, interval: 0, target: self, selector: "playAlarm", userInfo: nil, repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
         self.alarmLabel.text = "Alarm set \(datePicker.date)"
@@ -60,6 +59,23 @@ class ViewController: UIViewController {
         }
         // Let the phone go to sleep if needed
         UIApplication.sharedApplication().idleTimerDisabled = false
+    }
+    
+    func setSystemSettings() {
+        UIApplication.sharedApplication().idleTimerDisabled = true
+        self.setSystemVolume(10)
+        // UIScreen.mainScreen().brightness = 0.0
+    }
+    
+    func setSystemVolume(volume: Float) {
+        let volumeView = MPVolumeView()
+        
+        for view in volumeView.subviews {
+            if (NSStringFromClass(view.classForCoder) == "MPVolumeSlider") {
+                let slider = view as! UISlider
+                slider.setValue(volume, animated: false)
+            }
+        }
     }
 }
 
