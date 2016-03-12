@@ -32,6 +32,7 @@ class AudioTrack: NSObject {
         self.finishVolume = finishVolume
         do {
             self.audioPlayer = try AudioPlayer(fileName:fileName)
+            self.audioPlayer?.numberOfLoops = -1 // Will loop indefinitely until stopped.
         } catch {
             print("oh-oh")
         }

@@ -12,6 +12,7 @@
 		9F8ABA0F1C946FA5009DE4D3 /* ThreadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */; };
 		9F8ABA111C949890009DE4D3 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA101C949890009DE4D3 /* AudioTrack.swift */; };
 		9F8ABA151C949D80009DE4D3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA141C949D80009DE4D3 /* Alarm.swift */; };
+		9F8ABA181C94C691009DE4D3 /* AlertsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA171C94C691009DE4D3 /* AlertsUtils.swift */; };
 		9FA896981C86302500AEF51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896971C86302500AEF51F /* AppDelegate.swift */; };
 		9FA8969A1C86302500AEF51F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896991C86302500AEF51F /* AlarmViewController.swift */; };
 		9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA8969B1C86302500AEF51F /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadHandler.swift; sourceTree = "<group>"; };
 		9F8ABA101C949890009DE4D3 /* AudioTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		9F8ABA141C949D80009DE4D3 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		9F8ABA171C94C691009DE4D3 /* AlertsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsUtils.swift; sourceTree = "<group>"; };
 		9FA896941C86302500AEF51F /* Wake App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wake App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA896971C86302500AEF51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FA896991C86302500AEF51F /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		9FF7FF831C945E64009142D9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9F8ABA171C94C691009DE4D3 /* AlertsUtils.swift */,
 				9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */,
 			);
 			name = Utilities;
@@ -481,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F8ABA0F1C946FA5009DE4D3 /* ThreadHandler.swift in Sources */,
+				9F8ABA181C94C691009DE4D3 /* AlertsUtils.swift in Sources */,
 				9F8ABA111C949890009DE4D3 /* AudioTrack.swift in Sources */,
 				9FA8969A1C86302500AEF51F /* AlarmViewController.swift in Sources */,
 				9FA896981C86302500AEF51F /* AppDelegate.swift in Sources */,
