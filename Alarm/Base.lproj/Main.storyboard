@@ -28,7 +28,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Set"/>
                                 <connections>
-                                    <action selector="setAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XLo-bX-Zqc"/>
+                                    <action selector="setAlarmAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UcC-eb-QlV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H31-hW-MCe">

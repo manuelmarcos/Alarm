@@ -7,75 +7,28 @@
 //
 
 import UIKit
-import AudioPlayer
-import MediaPlayer
 
 class AlarmViewController: UIViewController {
     @IBOutlet var alarmLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
-    var audioPlayer: AudioPlayer?
-    var timer: NSTimer?
+    var alarm: Alarm?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let trackAmbient: AudioTrack = AudioTrack(type: AudioTrackType.Ambient, fileName: "ambient1.mp3", startMinute: 3, startVolume: 3, finishVolume: 4)
+        let trackTheme: AudioTrack = AudioTrack(type: AudioTrackType.Theme, fileName: "theme1.mp3", startMinute: 3, startVolume: 3, finishVolume: 4)
+        let trackVoice: AudioTrack = AudioTrack(type: AudioTrackType.Voice, fileName: "voice1.mp3", startMinute: 3, startVolume: 3, finishVolume: 4)
+        self.alarm = Alarm(ambient: trackAmbient, theme: trackTheme, voice: trackVoice, totalTime: 30)
     }
     
-    @IBAction func setAlarm(sender: AnyObject) {
-        
-        self.setSystemSettings()
-        
-        if (self.audioPlayer?.playing == true) {
-            self.audioPlayer?.stop()
-        }
-        
-        if (self.timer != nil) {
-            self.timer?.invalidate()
-        }
-
-        print(datePicker.date)
-        self.timer = NSTimer(fireDate: datePicker.date, interval: 0, target: self, selector: "playAlarm", userInfo: nil, repeats: false)
-        NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
+    @IBAction func setAlarmAction(sender: AnyObject) {
+        alarm?.setAlarmDate(datePicker.date)
         self.alarmLabel.text = "Alarm set \(datePicker.date)"
-    }
-    
-    func playAlarm() {
-        do {
-            self.audioPlayer = try AudioPlayer(fileName:"wakeapp.mp3")
-            // Start playing
-            self.audioPlayer!.play()
-            // Let the phone go to sleep if needed
-            UIApplication.sharedApplication().idleTimerDisabled = false
-        } catch {
-            print("oh-oh")
-        }
-    }
+    }    
     
     @IBAction func stop(sender: AnyObject) {
-        if (self.audioPlayer?.playing == true) {
-            self.audioPlayer?.stop()
-        }
-        if (self.timer != nil) {
-            self.timer?.invalidate()
-        }
-        // Let the phone go to sleep if needed
-        UIApplication.sharedApplication().idleTimerDisabled = false
-    }
-    
-    func setSystemSettings() {
-        UIApplication.sharedApplication().idleTimerDisabled = true
-        self.setSystemVolume(10)
-        // UIScreen.mainScreen().brightness = 0.0
-    }
-    
-    func setSystemVolume(volume: Float) {
-        let volumeView = MPVolumeView()
-        
-        for view in volumeView.subviews {
-            if (NSStringFromClass(view.classForCoder) == "MPVolumeSlider") {
-                let slider = view as! UISlider
-                slider.setValue(volume, animated: false)
-            }
-        }
+        alarm?.stop()
     }
 }
 

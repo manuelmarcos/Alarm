@@ -9,19 +9,23 @@
 import Foundation
 import AudioPlayer
 
+enum AudioTrackType {
+    case Ambient
+    case Theme
+    case Voice
+}
+
 class AudioTrack: NSObject {
-    enum Type {
-        case Ambient
-        case Theme
-        case Voice
-    }
+    var audioTrackType: AudioTrackType
     var fileName: String
     var startMinute: Float
     var startVolume: Float
     var finishVolume: Float
     var audioPlayer: AudioPlayer?
-    
-    init(fileName: String, startMinute: Float, startVolume: Float, finishVolume: Float) {
+    var timer: NSTimer?
+
+    init(type: AudioTrackType, fileName: String, startMinute: Float, startVolume: Float, finishVolume: Float) {
+        self.audioTrackType = type
         self.fileName = fileName
         self.startMinute = startMinute
         self.startVolume = startVolume
@@ -31,5 +35,6 @@ class AudioTrack: NSObject {
         } catch {
             print("oh-oh")
         }
+        // TODO: Start the timer here depending on when it starts
     }
 }
