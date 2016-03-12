@@ -17,7 +17,12 @@ class ConfigureViewController: UIViewController {
     }
     
     func doneAction() {
-        // TODO: Set configuration and close view.
-        self.dismissViewControllerAnimated(true, completion: nil)
+        {
+            // TODO: Configure the alarm
+            
+            } ~> {
+            // Main thread, work with the UI
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 }
