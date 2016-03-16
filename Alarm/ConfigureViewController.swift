@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 class ConfigureViewController: UIViewController {
-
+    @IBOutlet var totalTimePicker: UIPickerView!
+    @IBOutlet var totalTimeTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneAction"), animated: false)
@@ -25,4 +27,7 @@ class ConfigureViewController: UIViewController {
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
+    
+   
+    
 }

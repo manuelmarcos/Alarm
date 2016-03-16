@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F29F2AA1C99D9BE00605210 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29F2A91C99D9BE00605210 /* AudioPlayerManager.swift */; };
 		9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */; };
 		9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */; };
 		9F8ABA0F1C946FA5009DE4D3 /* ThreadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */; };
@@ -53,6 +54,7 @@
 		4B59CD66BD5E895336EFF690 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F1ED0B4611F74D735DFD3EB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBC5D31F711DA7198BED1DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9F29F2A91C99D9BE00605210 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigureViewController.storyboard; sourceTree = "<group>"; };
 		9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadHandler.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		9FF7FF7F1C945E32009142D9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9F29F2A91C99D9BE00605210 /* AudioPlayerManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				9F8ABA111C949890009DE4D3 /* AudioTrack.swift in Sources */,
 				9FA8969A1C86302500AEF51F /* AlarmViewController.swift in Sources */,
 				9FA896981C86302500AEF51F /* AppDelegate.swift in Sources */,
+				9F29F2AA1C99D9BE00605210 /* AudioPlayerManager.swift in Sources */,
 				9F8ABA151C949D80009DE4D3 /* Alarm.swift in Sources */,
 				9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */,
 			);

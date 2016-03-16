@@ -1,40 +1,26 @@
-// AudioPlayerSwift.swift
 //
-// Copyright (c) 2016 Recisio (http://www.recisio.com)
+//  AudioPlayerManager.swift
+//  Alarm
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Created by Manuel Marcos Regalado on 16/03/2016.
+//  Copyright © 2016 Manuel Marcos Regalado. All rights reserved.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
 import Foundation
 import AVFoundation
 
-public enum AudioPlayerError: ErrorType {
+public enum AudioPlayerManagerError: ErrorType {
     case FileExtension
 }
 
-public class AudioPlayer: NSObject {
-
+public class AudioPlayerManager: NSObject {
+    
     public static let SoundDidFinishPlayingNotification = "SoundDidFinishPlayingNotification"
     public typealias SoundCompletionHandler = (didFinish: Bool) -> Void
     
     /// Name of the used to initialize the object
     public var name: String?
-
+    
     /// URL of the used to initialize the object
     public let URL: NSURL?
     
@@ -50,7 +36,7 @@ public class AudioPlayer: NSObject {
             return false
         }
     }
-
+    
     /// the duration of the sound.
     public var duration: NSTimeInterval {
         get {
@@ -70,10 +56,10 @@ public class AudioPlayer: NSObject {
             return 0.0
         }
         set {
-           sound?.currentTime = newValue
+            sound?.currentTime = newValue
         }
     }
-
+    
     /// The volume for the sound. The nominal range is from 0.0 to 1.0.
     public var volume: Float = 1.0 {
         didSet {
@@ -91,7 +77,7 @@ public class AudioPlayer: NSObject {
             sound?.numberOfLoops = numberOfLoops
         }
     }
-
+    
     /// set panning. -1.0 is left, 0.0 is center, 1.0 is right.
     public var pan: Float = 0.0 {
         didSet {
@@ -100,12 +86,12 @@ public class AudioPlayer: NSObject {
     }
     
     // MARK: Init
-
+    
     public convenience init(fileName: String) throws {
         let fixedFileName = fileName.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
         var soundFileComponents = fixedFileName.componentsSeparatedByString(".")
         if soundFileComponents.count == 1 {
-            throw AudioPlayerError.FileExtension
+            throw AudioPlayerManagerError.FileExtension
         }
         let path = NSBundle.mainBundle().pathForResource(soundFileComponents[0], ofType: soundFileComponents[1])
         try self.init(contentsOfPath: path!)
@@ -159,16 +145,22 @@ public class AudioPlayer: NSObject {
         fadeTo(1.0, duration: duration)
     }
     
+    public func fadeIn(duration: NSTimeInterval = 1.0, fromVolume: Float, toVolume: Float) {
+        targetVolume = toVolume
+        fadeTo(fromVolume, duration: duration)
+    }
+
     public func fadeOut(duration: NSTimeInterval = 1.0) {
         fadeTo(0.0, duration: duration)
     }
-
+    
     // MARK: Private
     
-    private func handleFadeTo() {
+    @objc private func handleFadeTo() {
         let now = NSDate().timeIntervalSinceReferenceDate
         let delta: Float = (Float(now - fadeStart) / Float(fadeTime) * (targetVolume - startVolume))
         sound?.volume = startVolume + delta
+        print("\(sound?.volume)")
         if delta > 0.0 && sound?.volume >= targetVolume ||
             delta < 0.0 && sound?.volume <= targetVolume {
                 sound?.volume = targetVolume
@@ -196,7 +188,7 @@ public class AudioPlayer: NSObject {
     
 }
 
-extension AudioPlayer: AVAudioPlayerDelegate {
+extension AudioPlayerManager: AVAudioPlayerDelegate {
     
     public func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         soundDidFinishPlayingSuccessfully(flag)
@@ -204,7 +196,7 @@ extension AudioPlayer: AVAudioPlayerDelegate {
     
 }
 
-private extension AudioPlayer {
+private extension AudioPlayerManager {
     
     private func soundDidFinishPlayingSuccessfully(didFinishSuccessfully: Bool) {
         sound?.stop()
@@ -215,7 +207,7 @@ private extension AudioPlayer {
             nonNilCompletionHandler(didFinish: didFinishSuccessfully)
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName(AudioPlayer.SoundDidFinishPlayingNotification, object: self)
+        NSNotificationCenter.defaultCenter().postNotificationName(AudioPlayerManager.SoundDidFinishPlayingNotification, object: self)
     }
     
 }

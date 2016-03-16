@@ -35,11 +35,11 @@ class Alarm: NSObject {
         NSRunLoop.mainRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)
         
         // TODO: Move this to the set method of timer for each ambient
-        self.ambient.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.ambient.startMinute), interval: 0.0, target: self.ambient.audioPlayer!, selector: "play", userInfo: nil, repeats: false)
+        self.ambient.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.ambient.startMinute), interval: 0.0, target: self.ambient, selector: "play:", userInfo: ["fadeToDuration" : (self.totalTime - self.ambient.startMinute)], repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.ambient.timer!, forMode: NSRunLoopCommonModes)
-        self.theme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.theme.startMinute), interval: 0.0, target: self.theme.audioPlayer!, selector: "play", userInfo: nil, repeats: false)
+        self.theme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.theme.startMinute), interval: 0.0, target: self.theme, selector: "play:", userInfo: ["fadeToDuration" : (self.totalTime - self.theme.startMinute)], repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.theme.timer!, forMode: NSRunLoopCommonModes)
-        self.voice.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.voice.startMinute), interval: 0.0, target: self.voice.audioPlayer!, selector: "play", userInfo: nil, repeats: false)
+        self.voice.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(self.voice.startMinute), interval: 0.0, target: self.voice, selector: "play:", userInfo: ["fadeToDuration" : (self.totalTime - self.voice.startMinute)], repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.voice.timer!, forMode: NSRunLoopCommonModes)
 }
     

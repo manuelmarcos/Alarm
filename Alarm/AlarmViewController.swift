@@ -16,9 +16,9 @@ class AlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let trackAmbient: AudioTrack = AudioTrack(type: AudioTrackType.Ambient, fileName: "ambient1.mp3", startMinute: NSTimeInterval(0), startVolume: 3, finishVolume: 4)
-        let trackTheme: AudioTrack = AudioTrack(type: AudioTrackType.Theme, fileName: "theme1.mp3", startMinute: NSTimeInterval(3 * 60), startVolume: 3, finishVolume: 4)
-        let trackVoice: AudioTrack = AudioTrack(type: AudioTrackType.Voice, fileName: "voice1.mp3", startMinute: NSTimeInterval(6 * 60), startVolume: 3, finishVolume: 4)
+        let trackAmbient: AudioTrack = AudioTrack(type: AudioTrackType.Ambient, fileName: "ambient1.mp3", startMinute: NSTimeInterval(0), startVolume: 0.2, finishVolume: 1.0)
+        let trackTheme: AudioTrack = AudioTrack(type: AudioTrackType.Theme, fileName: "theme1.mp3", startMinute: NSTimeInterval(3 * 60), startVolume: 0.3, finishVolume: 1.0)
+        let trackVoice: AudioTrack = AudioTrack(type: AudioTrackType.Voice, fileName: "voice1.mp3", startMinute: NSTimeInterval(6 * 60), startVolume: 0.2, finishVolume: 1.0)
         self.alarm = Alarm(ambient: trackAmbient, theme: trackTheme, voice: trackVoice, totalTime: NSTimeInterval(9 * 60))
     }
     
@@ -32,11 +32,12 @@ class AlarmViewController: UIViewController {
         var pickerDate = NSDate();
         let pickerTimeInterval = floor(datePicker.date.timeIntervalSinceReferenceDate / 60.0) * 60.0
         pickerDate = NSDate(timeIntervalSinceReferenceDate: pickerTimeInterval)
-        if (pickerDate.isEqualToDate(currentDate)) {
-            AlertsUtils.showAlertWithErrorMessage("Cannot set alarm. Try setting alarm one minute ahead")
-        } else {
+        if (pickerDate.isEqualToDate(currentDate) ) {
+//            AlertsUtils.showAlertWithErrorMessage("Cannot set alarm. Try setting alarm one minute ahead")
             alarm?.setAlarmDate(pickerDate)
             self.alarmLabel.text = "Alarm set \(pickerDate))"
+        } else {
+            
         }
     }    
     
