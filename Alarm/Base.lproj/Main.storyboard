@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="35" id="H8v-e6-avq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9c8-gS-bxz">
@@ -53,6 +53,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <state key="normal" title="Configure"/>
                                 <connections>
+                                    <action selector="configureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GVm-MS-fws"/>
                                     <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SYU-Jt-Onr"/>
                                     <segue destination="OMU-hC-r8f" kind="presentation" id="qxK-tZ-hA1"/>
                                 </connections>
@@ -96,7 +97,7 @@
         <!--ConfigureViewController-->
         <scene sceneID="GdC-CS-QAS">
             <objects>
-                <viewControllerPlaceholder storyboardName="ConfigureViewController" id="OMU-hC-r8f" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ConfigureViewController" storyboardName="ConfigureViewController" id="OMU-hC-r8f" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2b-Zp-fYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1137" y="387"/>

@@ -6,12 +6,20 @@
 //  Copyright © 2016 Manuel Marcos Regalado. All rights reserved.
 //
 
+protocol ConfigurationAlarm{
+    func configurationAlarm(alarm: Alarm)
+}
+
 import UIKit
 
-class AlarmViewController: UIViewController {
+class AlarmViewController: UIViewController, ConfigurationAlarm {
     @IBOutlet var alarmLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
     var alarm: Alarm?
+    
+    func configurationAlarm(alarm: Alarm) {
+        self.alarm = alarm
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +28,19 @@ class AlarmViewController: UIViewController {
         let trackTheme: AudioTrack = AudioTrack(type: AudioTrackType.Theme, fileName: "theme1.mp3", startMinute: NSTimeInterval(3 * 60), startVolume: 0.3, finishVolume: 1.0)
         let trackVoice: AudioTrack = AudioTrack(type: AudioTrackType.Voice, fileName: "voice1.mp3", startMinute: NSTimeInterval(6 * 60), startVolume: 0.2, finishVolume: 1.0)
         self.alarm = Alarm(ambient: trackAmbient, theme: trackTheme, voice: trackVoice, totalTime: NSTimeInterval(9 * 60))
+    }
+    
+    @IBAction func configureAction(sender: AnyObject) {
+    
+ 
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let configureNavigationController : UINavigationController = mainStoryboard.instantiateViewControllerWithIdentifier("ConfigureViewController") as! UINavigationController
+        let array = configureNavigationController.viewControllers
+        let configureController: ConfigureViewController = array[0] as! ConfigureViewController
+        configureController.delegate  = self
+        self.presentViewController(configureNavigationController, animated: true, completion: nil)
+        
+    
     }
     
     @IBAction func setAlarmAction(sender: AnyObject) {
@@ -44,5 +65,7 @@ class AlarmViewController: UIViewController {
     @IBAction func stop(sender: AnyObject) {
         alarm?.stop()
     }
+    
+    
 }
 
