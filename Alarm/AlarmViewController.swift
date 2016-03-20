@@ -23,6 +23,8 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.timeZone = NSTimeZone.localTimeZone()
     }
     
     @IBAction func configureAction(sender: AnyObject) {
@@ -40,7 +42,6 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
     @IBAction func setAlarmAction(sender: AnyObject) {
 
         if alarm != nil {
-            // FIXME: This is a quick solution in order to send a build out
             var currentDate = NSDate();
             let timeInterval = floor(currentDate.timeIntervalSinceReferenceDate / 60.0) * 60.0
             currentDate = NSDate(timeIntervalSinceReferenceDate: timeInterval)
@@ -49,11 +50,10 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
             let pickerTimeInterval = floor(datePicker.date.timeIntervalSinceReferenceDate / 60.0) * 60.0
             pickerDate = NSDate(timeIntervalSinceReferenceDate: pickerTimeInterval)
             if (pickerDate.isEqualToDate(currentDate) ) {
-                //            AlertsUtils.showAlertWithErrorMessage("Cannot set alarm. Try setting alarm one minute ahead")
+                AlertsUtils.showAlertWithErrorMessage("Cannot set alarm. Try setting alarm one minute ahead")
+            } else {
                 alarm?.setAlarmDate(pickerDate)
                 self.alarmLabel.text = "Alarm set \(pickerDate))"
-            } else {
-                
             }
         } else {
             AlertsUtils.showAlertWithErrorMessage("You first need to configure an alarm.")
