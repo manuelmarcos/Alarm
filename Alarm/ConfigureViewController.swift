@@ -26,6 +26,8 @@ class ConfigureViewController: UIViewController {
     @IBOutlet var voiceStartingVolumeTextField: UITextField!
     @IBOutlet var voiceFinishingVolumeTextField: UITextField!
     
+    var audioPlayer: AudioPlayerManager?
+    
     var delegate: ConfigurationAlarm!
     
     override func viewDidLoad() {
@@ -47,13 +49,17 @@ class ConfigureViewController: UIViewController {
     }
     
     func doneAction () {        
-        if self.isValidAmbient() && self.isValidTheme() && self.isValidVoice() {                        
-            let trackAmbient: AudioTrack = AudioTrack(type: AudioTrackType.Ambient, fileName:"\(self.ambientSegmentedControl.titleForSegmentAtIndex(ambientSegmentedControl.selectedSegmentIndex)!).mp3", startMinute: NSTimeInterval(Float(ambientStartingMinuteTextField.text!)!), startVolume: Float(ambientStartingVolumeTextField.text!)!, finishVolume: Float(ambientFinishingVolumeTextField.text!)!)
+        if self.isValidAmbient() && self.isValidTheme() && self.isValidVoice(),
+        let totalDuration = Int(totalTimeTextField.text!) {
+            
+            let trackAmbient: AudioTrack = AudioTrack(type: AudioTrackType.Ambient, fileName:"\(self.ambientSegmentedControl.titleForSegmentAtIndex(ambientSegmentedControl.selectedSegmentIndex)!).mp3", startMinute: NSTimeInterval(Float(ambientStartingMinuteTextField.text!)! * 60), startVolume: Float(ambientStartingVolumeTextField.text!)!, finishVolume: Float(ambientFinishingVolumeTextField.text!)!)
             
             
-            let trackTheme: AudioTrack = AudioTrack(type: AudioTrackType.Theme, fileName: "theme1.mp3", startMinute: NSTimeInterval(3 * 60), startVolume: 0.3, finishVolume: 1.0)
-            let trackVoice: AudioTrack = AudioTrack(type: AudioTrackType.Voice, fileName: "voice1.mp3", startMinute: NSTimeInterval(6 * 60), startVolume: 0.2, finishVolume: 1.0)
-            self.delegate.configurationAlarm( Alarm(ambient: trackAmbient, theme: trackTheme, voice: trackVoice, totalTime: NSTimeInterval(9 * 60)))
+            let trackTheme: AudioTrack = AudioTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!).mp3", startMinute: NSTimeInterval(Float(themeStartingMinuteTextField.text!)! * 60), startVolume: Float(themeStartingVolumeTextField.text!)!, finishVolume: Float(themeFinishingVolumeTextField.text!)!)
+            
+            let trackVoice: AudioTrack = AudioTrack(type: AudioTrackType.Voice, fileName:"\(self.voiceSegmentedControl.titleForSegmentAtIndex(voiceSegmentedControl.selectedSegmentIndex)!).mp3", startMinute: NSTimeInterval(Float(voiceStartingMinuteTextField.text!)! * 60), startVolume: Float(voiceStartingVolumeTextField.text!)!, finishVolume: Float(voiceFinishingVolumeTextField.text!)!)
+            
+            self.delegate.configurationAlarm( Alarm(ambient: trackAmbient, theme: trackTheme, voice: trackVoice, totalTime: NSTimeInterval(totalDuration * 60)))
             
             self.dismissViewControllerAnimated(true, completion: nil)
         } else {
@@ -132,6 +138,72 @@ class ConfigureViewController: UIViewController {
             } ~> {
             // Main thread, work with the UI
             self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    @IBAction func ambientPlayStopAction(sender: UIButton) {
+        let string = sender.titleLabel?.text!
+        if string == "Play" {
+            
+            if self.audioPlayer != nil {
+                self.audioPlayer?.stop()
+            }
+
+            sender.setTitle("Stop", forState: UIControlState.Normal)
+            do {
+                self.audioPlayer = try AudioPlayerManager(fileName:"\(self.ambientSegmentedControl.titleForSegmentAtIndex(ambientSegmentedControl.selectedSegmentIndex)!).mp3")
+                self.audioPlayer?.numberOfLoops = -1 // Will loop indefinitely until stopped.
+                self.audioPlayer?.play()
+            } catch {
+                print("oh-oh")
+            }
+            
+        } else {
+            sender.setTitle("Play", forState: UIControlState.Normal)
+            self.audioPlayer?.stop()
+        }
+        
+    }
+    @IBAction func themePlayStopAction(sender: UIButton) {
+        let string = sender.titleLabel?.text!
+        if string == "Play" {
+
+            if self.audioPlayer != nil {
+                self.audioPlayer?.stop()
+            }
+            sender.setTitle("Stop", forState: UIControlState.Normal)
+            do {
+                self.audioPlayer = try AudioPlayerManager(fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!).mp3")
+                self.audioPlayer?.numberOfLoops = -1 // Will loop indefinitely until stopped.
+                self.audioPlayer?.play()
+            } catch {
+                print("oh-oh")
+            }
+            
+        } else {
+            sender.setTitle("Play", forState: UIControlState.Normal)
+            self.audioPlayer?.stop()
+        }
+        
+    }
+    @IBAction func voicePlayStopAction(sender: UIButton) {
+        let string = sender.titleLabel?.text!
+        if string == "Play" {
+            if self.audioPlayer != nil {
+                self.audioPlayer?.stop()
+            }
+            sender.setTitle("Stop", forState: UIControlState.Normal)
+            do {
+                self.audioPlayer = try AudioPlayerManager(fileName:"\(self.voiceSegmentedControl.titleForSegmentAtIndex(voiceSegmentedControl.selectedSegmentIndex)!).mp3")
+                self.audioPlayer?.numberOfLoops = -1 // Will loop indefinitely until stopped.
+                self.audioPlayer?.play()
+            } catch {
+                print("oh-oh")
+            }
+            
+        } else {
+            sender.setTitle("Play", forState: UIControlState.Normal)
+            self.audioPlayer?.stop()
         }
     }
     

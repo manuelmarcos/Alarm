@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F29F2AA1C99D9BE00605210 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29F2A91C99D9BE00605210 /* AudioPlayerManager.swift */; };
+		9F7EE5D81C9F055C00488D49 /* voice3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F7EE5D71C9F055C00488D49 /* voice3.mp3 */; };
 		9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */; };
 		9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */; };
 		9F8ABA0F1C946FA5009DE4D3 /* ThreadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */; };
@@ -29,7 +30,6 @@
 		9FE940E91C90AA0600DD69A8 /* ambient3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940E61C90AA0600DD69A8 /* ambient3.mp3 */; };
 		9FE940F31C90AA2700DD69A8 /* voice1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F01C90AA2700DD69A8 /* voice1.mp3 */; };
 		9FE940F41C90AA2700DD69A8 /* voice2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F11C90AA2700DD69A8 /* voice2.mp3 */; };
-		9FE940F51C90AA2700DD69A8 /* voice3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F21C90AA2700DD69A8 /* voice3.wav */; };
 		B8078AEDC7E3948D05360849 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1ED0B4611F74D735DFD3EB /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +55,7 @@
 		7F1ED0B4611F74D735DFD3EB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBC5D31F711DA7198BED1DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9F29F2A91C99D9BE00605210 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
+		9F7EE5D71C9F055C00488D49 /* voice3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice3.mp3; sourceTree = "<group>"; };
 		9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigureViewController.storyboard; sourceTree = "<group>"; };
 		9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadHandler.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		9FE940E61C90AA0600DD69A8 /* ambient3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient3.mp3; sourceTree = "<group>"; };
 		9FE940F01C90AA2700DD69A8 /* voice1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice1.mp3; sourceTree = "<group>"; };
 		9FE940F11C90AA2700DD69A8 /* voice2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice2.mp3; sourceTree = "<group>"; };
-		9FE940F21C90AA2700DD69A8 /* voice3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = voice3.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +208,7 @@
 			children = (
 				9FE940F01C90AA2700DD69A8 /* voice1.mp3 */,
 				9FE940F11C90AA2700DD69A8 /* voice2.mp3 */,
-				9FE940F21C90AA2700DD69A8 /* voice3.wav */,
+				9F7EE5D71C9F055C00488D49 /* voice3.mp3 */,
 			);
 			name = voice;
 			sourceTree = "<group>";
@@ -392,9 +392,9 @@
 				9FE940F41C90AA2700DD69A8 /* voice2.mp3 in Resources */,
 				9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */,
 				9FE940E91C90AA0600DD69A8 /* ambient3.mp3 in Resources */,
-				9FE940F51C90AA2700DD69A8 /* voice3.wav in Resources */,
 				9FE940E71C90AA0600DD69A8 /* ambient1.mp3 in Resources */,
 				9FA8969F1C86302500AEF51F /* Assets.xcassets in Resources */,
+				9F7EE5D81C9F055C00488D49 /* voice3.mp3 in Resources */,
 				9FE940F31C90AA2700DD69A8 /* voice1.mp3 in Resources */,
 				9FE940E81C90AA0600DD69A8 /* ambient2.mp3 in Resources */,
 				9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */,

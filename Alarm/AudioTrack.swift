@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import AudioPlayer
 
 enum AudioTrackType {
     case Ambient
