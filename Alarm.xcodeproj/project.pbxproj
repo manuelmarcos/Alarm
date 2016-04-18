@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9F29F2AA1C99D9BE00605210 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29F2A91C99D9BE00605210 /* AudioPlayerManager.swift */; };
-		9F4FC4EC1CA1D68B0063C9C3 /* theme1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FC4EB1CA1D68B0063C9C3 /* theme1.mp3 */; };
-		9F4FC4EE1CA1D6AA0063C9C3 /* ambient2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4FC4ED1CA1D6AA0063C9C3 /* ambient2.mp3 */; };
-		9F7EE5D81C9F055C00488D49 /* voice3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F7EE5D71C9F055C00488D49 /* voice3.mp3 */; };
+		9F4B63321CBA7E9B00284E3C /* theme1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B632C1CBA7E9B00284E3C /* theme1.mp3 */; };
+		9F4B63331CBA7E9B00284E3C /* theme1Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B632D1CBA7E9B00284E3C /* theme1Loop.mp3 */; };
+		9F4B63341CBA7E9B00284E3C /* theme2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B632E1CBA7E9B00284E3C /* theme2.mp3 */; };
+		9F4B63351CBA7E9B00284E3C /* theme2Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B632F1CBA7E9B00284E3C /* theme2Loop.mp3 */; };
+		9F4B63361CBA7E9B00284E3C /* theme3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63301CBA7E9B00284E3C /* theme3.mp3 */; };
+		9F4B63371CBA7E9B00284E3C /* theme3Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63311CBA7E9B00284E3C /* theme3Loop.mp3 */; };
+		9F4B633B1CBA7EBC00284E3C /* birdies.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63381CBA7EBC00284E3C /* birdies.mp3 */; };
+		9F4B633C1CBA7EBC00284E3C /* canyon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63391CBA7EBC00284E3C /* canyon.mp3 */; };
+		9F4B633D1CBA7EBC00284E3C /* woodenChime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */; };
 		9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */; };
 		9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */; };
 		9F8ABA0F1C946FA5009DE4D3 /* ThreadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */; };
@@ -24,12 +30,6 @@
 		9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA896A01C86302500AEF51F /* LaunchScreen.storyboard */; };
 		9FA896AD1C86302500AEF51F /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896AC1C86302500AEF51F /* AlarmTests.swift */; };
 		9FA896B81C86302500AEF51F /* AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896B71C86302500AEF51F /* AlarmUITests.swift */; };
-		9FB2999A1C94607E00C6D4D2 /* theme2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FB299971C94607E00C6D4D2 /* theme2.mp3 */; };
-		9FB2999B1C94607E00C6D4D2 /* theme3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FB299981C94607E00C6D4D2 /* theme3.mp3 */; };
-		9FE940E71C90AA0600DD69A8 /* ambient1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940E41C90AA0600DD69A8 /* ambient1.mp3 */; };
-		9FE940E91C90AA0600DD69A8 /* ambient3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940E61C90AA0600DD69A8 /* ambient3.mp3 */; };
-		9FE940F31C90AA2700DD69A8 /* voice1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F01C90AA2700DD69A8 /* voice1.mp3 */; };
-		9FE940F41C90AA2700DD69A8 /* voice2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FE940F11C90AA2700DD69A8 /* voice2.mp3 */; };
 		B8078AEDC7E3948D05360849 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1ED0B4611F74D735DFD3EB /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,9 +55,15 @@
 		7F1ED0B4611F74D735DFD3EB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBC5D31F711DA7198BED1DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9F29F2A91C99D9BE00605210 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
-		9F4FC4EB1CA1D68B0063C9C3 /* theme1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme1.mp3; sourceTree = "<group>"; };
-		9F4FC4ED1CA1D6AA0063C9C3 /* ambient2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient2.mp3; sourceTree = "<group>"; };
-		9F7EE5D71C9F055C00488D49 /* voice3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice3.mp3; sourceTree = "<group>"; };
+		9F4B632C1CBA7E9B00284E3C /* theme1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme1.mp3; sourceTree = "<group>"; };
+		9F4B632D1CBA7E9B00284E3C /* theme1Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme1Loop.mp3; sourceTree = "<group>"; };
+		9F4B632E1CBA7E9B00284E3C /* theme2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme2.mp3; sourceTree = "<group>"; };
+		9F4B632F1CBA7E9B00284E3C /* theme2Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme2Loop.mp3; sourceTree = "<group>"; };
+		9F4B63301CBA7E9B00284E3C /* theme3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme3.mp3; sourceTree = "<group>"; };
+		9F4B63311CBA7E9B00284E3C /* theme3Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme3Loop.mp3; sourceTree = "<group>"; };
+		9F4B63381CBA7EBC00284E3C /* birdies.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = birdies.mp3; sourceTree = "<group>"; };
+		9F4B63391CBA7EBC00284E3C /* canyon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = canyon.mp3; sourceTree = "<group>"; };
+		9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = woodenChime.mp3; sourceTree = "<group>"; };
 		9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigureViewController.storyboard; sourceTree = "<group>"; };
 		9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadHandler.swift; sourceTree = "<group>"; };
@@ -77,12 +83,6 @@
 		9FA896B31C86302500AEF51F /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA896B71C86302500AEF51F /* AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmUITests.swift; sourceTree = "<group>"; };
 		9FA896B91C86302500AEF51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FB299971C94607E00C6D4D2 /* theme2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme2.mp3; sourceTree = "<group>"; };
-		9FB299981C94607E00C6D4D2 /* theme3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme3.mp3; sourceTree = "<group>"; };
-		9FE940E41C90AA0600DD69A8 /* ambient1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient1.mp3; sourceTree = "<group>"; };
-		9FE940E61C90AA0600DD69A8 /* ambient3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient3.mp3; sourceTree = "<group>"; };
-		9FE940F01C90AA2700DD69A8 /* voice1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice1.mp3; sourceTree = "<group>"; };
-		9FE940F11C90AA2700DD69A8 /* voice2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voice2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +117,45 @@
 				7F1ED0B4611F74D735DFD3EB /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F4B63271CBA6E7E00284E3C /* Alpha 3 */ = {
+			isa = PBXGroup;
+			children = (
+				9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */,
+				9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */,
+			);
+			name = "Alpha 3";
+			sourceTree = "<group>";
+		};
+		9F4B63281CBA7AD700284E3C /* Alpha 4 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Alpha 4";
+			sourceTree = "<group>";
+		};
+		9F4B632A1CBA7E1100284E3C /* Pre-Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				9F4B63381CBA7EBC00284E3C /* birdies.mp3 */,
+				9F4B63391CBA7EBC00284E3C /* canyon.mp3 */,
+				9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */,
+			);
+			name = "Pre-Alarm";
+			sourceTree = "<group>";
+		};
+		9F4B632B1CBA7E2000284E3C /* Post-Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				9F4B632C1CBA7E9B00284E3C /* theme1.mp3 */,
+				9F4B632D1CBA7E9B00284E3C /* theme1Loop.mp3 */,
+				9F4B632E1CBA7E9B00284E3C /* theme2.mp3 */,
+				9F4B632F1CBA7E9B00284E3C /* theme2Loop.mp3 */,
+				9F4B63301CBA7E9B00284E3C /* theme3.mp3 */,
+				9F4B63311CBA7E9B00284E3C /* theme3Loop.mp3 */,
+			);
+			name = "Post-Alarm";
 			sourceTree = "<group>";
 		};
 		9FA8968B1C86302500AEF51F = {
@@ -176,41 +215,10 @@
 		9FE940E01C90A9C500DD69A8 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				9FE940E31C90A9E900DD69A8 /* voice */,
-				9FE940E21C90A9E400DD69A8 /* theme */,
-				9FE940E11C90A9DE00DD69A8 /* ambient */,
+				9F4B632B1CBA7E2000284E3C /* Post-Alarm */,
+				9F4B632A1CBA7E1100284E3C /* Pre-Alarm */,
 			);
 			name = Sounds;
-			sourceTree = "<group>";
-		};
-		9FE940E11C90A9DE00DD69A8 /* ambient */ = {
-			isa = PBXGroup;
-			children = (
-				9FE940E41C90AA0600DD69A8 /* ambient1.mp3 */,
-				9F4FC4ED1CA1D6AA0063C9C3 /* ambient2.mp3 */,
-				9FE940E61C90AA0600DD69A8 /* ambient3.mp3 */,
-			);
-			name = ambient;
-			sourceTree = "<group>";
-		};
-		9FE940E21C90A9E400DD69A8 /* theme */ = {
-			isa = PBXGroup;
-			children = (
-				9F4FC4EB1CA1D68B0063C9C3 /* theme1.mp3 */,
-				9FB299971C94607E00C6D4D2 /* theme2.mp3 */,
-				9FB299981C94607E00C6D4D2 /* theme3.mp3 */,
-			);
-			name = theme;
-			sourceTree = "<group>";
-		};
-		9FE940E31C90A9E900DD69A8 /* voice */ = {
-			isa = PBXGroup;
-			children = (
-				9FE940F01C90AA2700DD69A8 /* voice1.mp3 */,
-				9FE940F11C90AA2700DD69A8 /* voice2.mp3 */,
-				9F7EE5D71C9F055C00488D49 /* voice3.mp3 */,
-			);
-			name = voice;
 			sourceTree = "<group>";
 		};
 		9FF7FF7F1C945E32009142D9 /* Managers */ = {
@@ -246,8 +254,8 @@
 			children = (
 				9FA8969B1C86302500AEF51F /* Main.storyboard */,
 				9FA896991C86302500AEF51F /* AlarmViewController.swift */,
-				9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */,
-				9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */,
+				9F4B63281CBA7AD700284E3C /* Alpha 4 */,
+				9F4B63271CBA6E7E00284E3C /* Alpha 3 */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -388,19 +396,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F4FC4EC1CA1D68B0063C9C3 /* theme1.mp3 in Resources */,
-				9FE940F41C90AA2700DD69A8 /* voice2.mp3 in Resources */,
+				9F4B63331CBA7E9B00284E3C /* theme1Loop.mp3 in Resources */,
+				9F4B63321CBA7E9B00284E3C /* theme1.mp3 in Resources */,
 				9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */,
-				9FE940E91C90AA0600DD69A8 /* ambient3.mp3 in Resources */,
-				9FE940E71C90AA0600DD69A8 /* ambient1.mp3 in Resources */,
+				9F4B63351CBA7E9B00284E3C /* theme2Loop.mp3 in Resources */,
+				9F4B63371CBA7E9B00284E3C /* theme3Loop.mp3 in Resources */,
+				9F4B633D1CBA7EBC00284E3C /* woodenChime.mp3 in Resources */,
 				9FA8969F1C86302500AEF51F /* Assets.xcassets in Resources */,
-				9F7EE5D81C9F055C00488D49 /* voice3.mp3 in Resources */,
-				9FE940F31C90AA2700DD69A8 /* voice1.mp3 in Resources */,
 				9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */,
-				9FB2999B1C94607E00C6D4D2 /* theme3.mp3 in Resources */,
-				9FB2999A1C94607E00C6D4D2 /* theme2.mp3 in Resources */,
-				9F4FC4EE1CA1D6AA0063C9C3 /* ambient2.mp3 in Resources */,
+				9F4B63341CBA7E9B00284E3C /* theme2.mp3 in Resources */,
+				9F4B633C1CBA7EBC00284E3C /* canyon.mp3 in Resources */,
+				9F4B63361CBA7E9B00284E3C /* theme3.mp3 in Resources */,
 				9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */,
+				9F4B633B1CBA7EBC00284E3C /* birdies.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

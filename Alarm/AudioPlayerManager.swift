@@ -136,7 +136,7 @@ public class AudioPlayerManager: NSObject {
         fadeTime = duration;
         fadeStart = NSDate().timeIntervalSinceReferenceDate
         if timer == nil {
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.015, target: self, selector: "handleFadeTo", userInfo: nil, repeats: true)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.015, target: self, selector: #selector(AudioPlayerManager.handleFadeTo), userInfo: nil, repeats: true)
         }
     }
     

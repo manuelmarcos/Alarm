@@ -32,8 +32,8 @@ class ConfigureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setRightBarButtonItem(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneAction"), animated: false)
-        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelAction"), animated: false)
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(ConfigureViewController.doneAction)), animated: false)
+        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(ConfigureViewController.cancelAction)), animated: false)
         
         self.ambientSegmentedControl.setTitle("ambient1", forSegmentAtIndex: 0)
         self.ambientSegmentedControl.setTitle("ambient2", forSegmentAtIndex: 1)
