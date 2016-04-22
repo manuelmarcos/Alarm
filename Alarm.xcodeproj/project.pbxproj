@@ -17,6 +17,8 @@
 		9F4B633B1CBA7EBC00284E3C /* birdies.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63381CBA7EBC00284E3C /* birdies.mp3 */; };
 		9F4B633C1CBA7EBC00284E3C /* canyon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63391CBA7EBC00284E3C /* canyon.mp3 */; };
 		9F4B633D1CBA7EBC00284E3C /* woodenChime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */; };
+		9F5DFF681CC568CD00CC4CA0 /* AmbienceTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DFF671CC568CD00CC4CA0 /* AmbienceTrack.swift */; };
+		9F5DFF6A1CC5695D00CC4CA0 /* ThemeTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DFF691CC5695D00CC4CA0 /* ThemeTrack.swift */; };
 		9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */; };
 		9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */; };
 		9F8ABA0F1C946FA5009DE4D3 /* ThreadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */; };
@@ -64,6 +66,8 @@
 		9F4B63381CBA7EBC00284E3C /* birdies.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = birdies.mp3; sourceTree = "<group>"; };
 		9F4B63391CBA7EBC00284E3C /* canyon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = canyon.mp3; sourceTree = "<group>"; };
 		9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = woodenChime.mp3; sourceTree = "<group>"; };
+		9F5DFF671CC568CD00CC4CA0 /* AmbienceTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbienceTrack.swift; sourceTree = "<group>"; };
+		9F5DFF691CC5695D00CC4CA0 /* ThemeTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTrack.swift; sourceTree = "<group>"; };
 		9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigureViewController.storyboard; sourceTree = "<group>"; };
 		9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		9F8ABA0E1C946FA5009DE4D3 /* ThreadHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadHandler.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 			children = (
 				9F8ABA141C949D80009DE4D3 /* Alarm.swift */,
 				9F8ABA101C949890009DE4D3 /* AudioTrack.swift */,
+				9F5DFF671CC568CD00CC4CA0 /* AmbienceTrack.swift */,
+				9F5DFF691CC5695D00CC4CA0 /* ThemeTrack.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -500,8 +506,10 @@
 				9FA8969A1C86302500AEF51F /* AlarmViewController.swift in Sources */,
 				9FA896981C86302500AEF51F /* AppDelegate.swift in Sources */,
 				9F29F2AA1C99D9BE00605210 /* AudioPlayerManager.swift in Sources */,
+				9F5DFF681CC568CD00CC4CA0 /* AmbienceTrack.swift in Sources */,
 				9F8ABA151C949D80009DE4D3 /* Alarm.swift in Sources */,
 				9F8ABA0D1C9464E0009DE4D3 /* ConfigureViewController.swift in Sources */,
+				9F5DFF6A1CC5695D00CC4CA0 /* ThemeTrack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +658,7 @@
 				INFOPLIST_FILE = Alarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = manuel.marcos.Alarm;
 				PRODUCT_NAME = "Wake App";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -665,6 +674,7 @@
 				INFOPLIST_FILE = Alarm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = manuel.marcos.Alarm;
 				PRODUCT_NAME = "Wake App";
 				TARGETED_DEVICE_FAMILY = 1;

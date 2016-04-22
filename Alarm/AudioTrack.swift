@@ -22,28 +22,25 @@ class AudioTrack: NSObject {
     var finishVolume: Float
     var audioPlayer: AudioPlayerManager?
     var timer: NSTimer?
+    var numberOfLoops: NSInteger
 
-    init(type: AudioTrackType, fileName: String, startMinute: NSTimeInterval, startVolume: Float, finishVolume: Float) {
+    init(type: AudioTrackType, fileName: String, startMinute: NSTimeInterval, startVolume: Float, finishVolume: Float, numberOfLoops: NSInteger) {
         self.audioTrackType = type
         self.fileName = fileName
         self.startMinute = startMinute
         self.startVolume = startVolume
         self.finishVolume = finishVolume
+        self.numberOfLoops = numberOfLoops
         do {
             self.audioPlayer = try AudioPlayerManager(fileName:fileName)
-            self.audioPlayer?.numberOfLoops = -1 // Will loop indefinitely until stopped.
+            self.audioPlayer?.numberOfLoops = numberOfLoops // -1 Will loop indefinitely until stopped.
             self.audioPlayer?.volume = self.startVolume
         } catch {
             print("oh-oh")
         }
-    }
-    
-    func play(timer: NSTimer) {
-       if let userInfo = timer.userInfo as? Dictionary<String, AnyObject>,
-        let fadeToDuration: NSTimeInterval = userInfo["fadeToDuration"] as? NSTimeInterval {
-        // set the fade in here
-        self.audioPlayer!.fadeIn(fadeToDuration, fromVolume: self.startVolume, toVolume:self.finishVolume)
-        self.audioPlayer?.play()
-        }
+
+        ///     public typealias SoundCompletionHandler = (didFinish: Bool) -> Void
+        self.audioPlayer?.completionHandler
+
     }
 }
