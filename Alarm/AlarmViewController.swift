@@ -25,11 +25,7 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
         super.viewDidLoad()
 
         datePicker.timeZone = NSTimeZone.localTimeZone()
-
-        // TODO: remove the set alarm here
-        let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"birdies.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.1, finishVolume:0.9, numberOfLoops:-1)
-        let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"theme1.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.1, finishVolume:0.8, numberOfLoops:0)
-        alarm = Alarm(ambient: trackAmbient, theme: trackTheme)
+        
     }
 
     @IBAction func configureAction(sender: AnyObject) {
