@@ -12,12 +12,13 @@ import MediaPlayer
 class Alarm: NSObject {
     var ambient: AmbienceTrack
     var theme: ThemeTrack
-    var loopTheme: ThemeTrack?
+    var loopTheme: ThemeTrack
     var stopAmbienceTimer: NSTimer?
 
-    init(ambient: AmbienceTrack, theme: ThemeTrack) {
+    init(ambient: AmbienceTrack, theme: ThemeTrack, loopTheme: ThemeTrack) {
         self.ambient = ambient
         self.theme = theme
+        self.loopTheme = loopTheme
     }
 
     func setAlarmDate(dateSet: NSDate) {
@@ -28,35 +29,21 @@ class Alarm: NSObject {
         }
 
         // This method would stop the ambience sound by doing a fadeout
-        self.stopAmbienceTimer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval((5 * 60) - 30), interval: 0, target: self.ambient, selector: #selector(self.ambient.stop), userInfo: nil, repeats: false)
+        self.stopAmbienceTimer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval((2 * 60) - 30), interval: 0, target: self.ambient, selector: #selector(self.ambient.stop), userInfo: nil, repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.stopAmbienceTimer!, forMode: NSRunLoopCommonModes)
 
         // TODO: Move this to the set method of timer for each ambient
         self.ambient.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(0), interval: 0.0, target: self.ambient, selector:#selector(self.ambient.play), userInfo: ["fadeToDuration" : 60], repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.ambient.timer!, forMode: NSRunLoopCommonModes)
 
-          self.theme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval((5 * 60) - 15), interval: 0.0, target: self.theme, selector: #selector(self.theme.play), userInfo: ["fadeToDuration" : 30], repeats: false)
+          self.theme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval((2 * 60) - 15), interval: 0.0, target: self.theme, selector: #selector(self.theme.play), userInfo: ["fadeToDuration" : 30], repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.theme.timer!, forMode: NSRunLoopCommonModes)
 
-
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.stopTheme), name: AudioPlayerManager.SoundDidFinishPlayingNotification, object: nil)
-
-
-
-}
-
-    func stopTheme(notification: NSNotification) {
-
-        print("stopTheme")
-
-        if (self.ambient.audioPlayer?.playing == false && self.theme.audioPlayer?.playing == false) {
-            self.loopTheme = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:0.8, numberOfLoops:-1)
-            self.loopTheme!.playNow()
+        if let durationTrack: NSTimeInterval = self.loopTheme.audioPlayer?.duration {
+            self.loopTheme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(((2 * 60) - 15) + durationTrack), interval: 0.0, target: self.loopTheme, selector: #selector(self.loopTheme.playNow), userInfo: nil, repeats: false)
+            NSRunLoop.mainRunLoop().addTimer(self.loopTheme.timer!, forMode: NSRunLoopCommonModes)
         }
-
-
-    }
+}
 
 
     func playing() -> Bool {
@@ -68,25 +55,26 @@ class Alarm: NSObject {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         self.ambient.audioPlayer?.stop()
         self.theme.audioPlayer?.stop()
-        if self.loopTheme?.audioPlayer != nil {
-            self.loopTheme!.audioPlayer?.stop()
-        }
+        self.loopTheme.audioPlayer?.stop()
 
         if (self.ambient.timer != nil &&
             self.theme.timer != nil &&
+            self.loopTheme.timer != nil &&
             self.stopAmbienceTimer != nil) {
 
 
-                self.ambient.timer?.invalidate()
-                self.ambient.timer = nil
-                self.theme.timer?.invalidate()
-                self.theme.timer = nil
+            self.ambient.timer?.invalidate()
+            self.ambient.timer = nil
+            self.theme.timer?.invalidate()
+            self.theme.timer = nil
+            self.loopTheme.timer?.invalidate()
+            self.loopTheme.timer = nil
         }
     }
 
     func setSystemSettings(forAlarmOn isAlarmOn: Bool) {
         UIApplication.sharedApplication().idleTimerDisabled = isAlarmOn
-        self.setSystemVolume((isAlarmOn) ? 10 : 0)
+        self.setSystemVolume((isAlarmOn) ? 8 : 0)
         // UIScreen.mainScreen().brightness = (isAlarmOn) ? 10 : 0
     }
 

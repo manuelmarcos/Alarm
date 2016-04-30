@@ -248,9 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				9F8ABA141C949D80009DE4D3 /* Alarm.swift */,
-				9F8ABA101C949890009DE4D3 /* AudioTrack.swift */,
 				9F5DFF671CC568CD00CC4CA0 /* AmbienceTrack.swift */,
 				9F5DFF691CC5695D00CC4CA0 /* ThemeTrack.swift */,
+				9F8ABA101C949890009DE4D3 /* AudioTrack.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
