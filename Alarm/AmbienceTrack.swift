@@ -19,6 +19,6 @@ class AmbienceTrack: AudioTrack {
         }
     }
     func stop() {
-        audioPlayer?.fadeIn(60, fromVolume: 0.8, toVolume: 0.0)
+        audioPlayer?.fadeIn(60, fromVolume: 0.95, toVolume: 0.0)
     }
 }

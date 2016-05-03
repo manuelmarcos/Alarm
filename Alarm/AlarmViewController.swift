@@ -38,9 +38,9 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
 
 
         // Debugging code
-        let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"birdies.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.9, numberOfLoops:-1)
-        let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"theme1.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.8, numberOfLoops:0)
-        let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:0.8, numberOfLoops:-1)
+        let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"birdies.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.95, numberOfLoops:-1)
+        let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"theme1.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.95, numberOfLoops:0)
+        let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:0.95, numberOfLoops:-1)
         alarm = Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme)
 
     }
