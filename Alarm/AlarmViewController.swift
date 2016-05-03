@@ -14,18 +14,34 @@ import UIKit
 
 class AlarmViewController: UIViewController, ConfigurationAlarm {
     @IBOutlet var alarmLabel: UILabel!
+    @IBOutlet var alarmFileNamesLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
     var alarm: Alarm?
     var currentDim: CGFloat?
 
     func configurationAlarm(alarm: Alarm) {
         self.alarm = alarm
+        if self.alarm?.ambient.fileName != nil &&  self.alarm?.theme.fileName != nil {
+            self.alarmFileNamesLabel.text = "Ambience Track: \((self.alarm?.ambient.fileName)!) Theme trach: \((self.alarm?.theme.fileName)!)"
+
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.alarmFileNamesLabel.text = "Ambience Track: birdies.mp3; Theme track: theme1.mp3"
         self.currentDim = UIScreen.mainScreen().brightness
         datePicker.timeZone = NSTimeZone.localTimeZone()
+
+
+
+
+        // Debugging code
+        let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"birdies.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.9, numberOfLoops:-1)
+        let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"theme1.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.8, numberOfLoops:0)
+        let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:0.8, numberOfLoops:-1)
+        alarm = Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme)
 
     }
 
@@ -43,17 +59,10 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
 
     @IBAction func setAlarmAction(sender: AnyObject) {
 
-
-#if DEBUG
-    // Debugging code
-    let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"birdies.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.9, numberOfLoops:-1)
-    let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"theme1.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.8, numberOfLoops:0)
-    let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:0.8, numberOfLoops:-1)
-        alarm = Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme)
+//#if DEBUG
         let pickerTimeInterval = floor(datePicker.date.timeIntervalSinceReferenceDate / 60.0) * 60.0
         alarm?.setAlarmDate(NSDate(timeIntervalSinceReferenceDate: pickerTimeInterval))
-
-#else
+//#else
         // Production code
         if alarm != nil {
             var currentDate = NSDate()
@@ -72,7 +81,7 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
         } else {
             AlertsUtils.showAlertWithErrorMessage("You first need to configure an alarm.")
         }
-#endif
+//  #endif
 
     }
 
