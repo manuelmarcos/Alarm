@@ -59,10 +59,10 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
 
     @IBAction func setAlarmAction(sender: AnyObject) {
 
-//#if DEBUG
+#if DEBUG
         let pickerTimeInterval = floor(datePicker.date.timeIntervalSinceReferenceDate / 60.0) * 60.0
         alarm?.setAlarmDate(NSDate(timeIntervalSinceReferenceDate: pickerTimeInterval))
-//#else
+#else
         // Production code
         if alarm != nil {
             var currentDate = NSDate()
@@ -81,7 +81,7 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
         } else {
             AlertsUtils.showAlertWithErrorMessage("You first need to configure an alarm.")
         }
-//  #endif
+#endif
 
     }
 

@@ -45,7 +45,6 @@ class Alarm: NSObject {
         }
 }
 
-
     func playing() -> Bool {
         return (self.ambient.audioPlayer?.playing == true ||
             self.theme.audioPlayer?.playing == true)
@@ -62,7 +61,6 @@ class Alarm: NSObject {
             self.loopTheme.timer != nil &&
             self.stopAmbienceTimer != nil) {
 
-
             self.ambient.timer?.invalidate()
             self.ambient.timer = nil
             self.theme.timer?.invalidate()
@@ -74,7 +72,7 @@ class Alarm: NSObject {
 
     func setSystemSettings(forAlarmOn isAlarmOn: Bool) {
         UIApplication.sharedApplication().idleTimerDisabled = isAlarmOn
-        self.setSystemVolume((isAlarmOn) ? 8 : 0)
+        self.setSystemVolume((isAlarmOn) ? 0.85 : 0)
         // UIScreen.mainScreen().brightness = (isAlarmOn) ? 10 : 0
     }
 
