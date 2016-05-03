@@ -12,6 +12,21 @@ protocol ConfigurationAlarm {
 
 import UIKit
 
+extension NSDate {
+    func isGreaterThanDate(dateToCompare: NSDate) -> Bool {
+        //Declare Variables
+        var isGreater = false
+
+        //Compare Values
+        if self.compare(dateToCompare) == NSComparisonResult.OrderedDescending {
+            isGreater = true
+        }
+
+        //Return Result
+        return isGreater
+    }
+}
+
 class AlarmViewController: UIViewController, ConfigurationAlarm {
     @IBOutlet var alarmLabel: UILabel!
     @IBOutlet var alarmFileNamesLabel: UILabel!
@@ -29,7 +44,7 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.alarmLabel.text = "no alarm set"
         self.alarmFileNamesLabel.text = "Ambience Track: birdies.mp3; Theme track: theme1.mp3"
         self.currentDim = UIScreen.mainScreen().brightness
         datePicker.timeZone = NSTimeZone.localTimeZone()
@@ -59,11 +74,10 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
 
     @IBAction func setAlarmAction(sender: AnyObject) {
 
-#if DEBUG
-        let pickerTimeInterval = floor(datePicker.date.timeIntervalSinceReferenceDate / 60.0) * 60.0
-        alarm?.setAlarmDate(NSDate(timeIntervalSinceReferenceDate: pickerTimeInterval))
-#else
-        // Production code
+        // Debugging
+        //        let pickerTimeInterval = floor(datePicker.date.timeIntervalSinceReferenceDate / 60.0) * 60.0
+        //        alarm?.setAlarmDate(NSDate(timeIntervalSinceReferenceDate: pickerTimeInterval))
+
         if alarm != nil {
             var currentDate = NSDate()
             let timeInterval = floor(currentDate.timeIntervalSinceReferenceDate / 60.0) * 60.0
@@ -72,17 +86,15 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
             var pickerDate = NSDate()
             let pickerTimeInterval = floor(datePicker.date.timeIntervalSinceReferenceDate / 60.0) * 60.0
             pickerDate = NSDate(timeIntervalSinceReferenceDate: pickerTimeInterval)
-            if (pickerDate.isEqualToDate(currentDate) ) {
-                AlertsUtils.showAlertWithErrorMessage("Cannot set alarm. Try setting alarm one minute ahead")
+            if (pickerDate.isEqualToDate(currentDate) || currentDate.isGreaterThanDate(pickerDate)) {
+                AlertsUtils.showAlertWithErrorMessage("Cannot set alarm. Try setting alarm one minute ahead of your current time")
             } else {
-                alarm?.setAlarmDate(pickerDate)
                 self.alarmLabel.text = "Alarm set \(pickerDate))"
+                alarm?.setAlarmDate(pickerDate)
             }
         } else {
             AlertsUtils.showAlertWithErrorMessage("You first need to configure an alarm.")
         }
-#endif
-
     }
 
     @IBAction func stop(sender: AnyObject) {
