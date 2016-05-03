@@ -88,6 +88,11 @@ public class AudioPlayerManager: NSObject {
     // MARK: Init
 
     public convenience init(fileName: String) throws {
+
+
+        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        try AVAudioSession.sharedInstance().setActive(true)
+
         let fixedFileName = fileName.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
         var soundFileComponents = fixedFileName.componentsSeparatedByString(".")
         if soundFileComponents.count == 1 {
