@@ -21,11 +21,12 @@ class AudioTrack: NSObject {
     var lengthTrack: Float
     var startVolume: Float
     var finishVolume: Float
+    var fadeInDuration: Float
     var audioPlayer: AudioPlayerManager?
     var timer: NSTimer?
     var numberOfLoops: NSInteger
 
-    init(type: AudioTrackType, fileName: String, startMinute: NSTimeInterval, length: Float, startVolume: Float, finishVolume: Float, numberOfLoops: NSInteger) {
+    init(type: AudioTrackType, fileName: String, startMinute: NSTimeInterval, length: Float, startVolume: Float, finishVolume: Float, numberOfLoops: NSInteger, fadeInDuration: Float) {
         self.audioTrackType = type
         self.fileName = fileName
         self.startMinute = startMinute
@@ -33,6 +34,7 @@ class AudioTrack: NSObject {
         self.startVolume = startVolume
         self.finishVolume = finishVolume
         self.numberOfLoops = numberOfLoops
+        self.fadeInDuration = fadeInDuration
         do {
             self.audioPlayer = try AudioPlayerManager(fileName:fileName)
             self.audioPlayer?.numberOfLoops = numberOfLoops // -1 Will loop indefinitely until stopped.
