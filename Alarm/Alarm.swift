@@ -40,7 +40,7 @@ class Alarm: NSObject {
         NSRunLoop.mainRunLoop().addTimer(self.theme.timer!, forMode: NSRunLoopCommonModes)
 
         if let durationTrack: NSTimeInterval = self.theme.audioPlayer?.duration {
-            self.loopTheme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(Double(self.ambient.lengthTrack * 60)  + durationTrack), interval: 0.0, target: self.loopTheme, selector: #selector(self.loopTheme.playNow), userInfo: nil, repeats: false)
+            self.loopTheme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(ambiencefadeOutStartMinute + durationTrack), interval: 0.0, target: self.loopTheme, selector: #selector(self.loopTheme.playNow), userInfo: nil, repeats: false)
             NSRunLoop.mainRunLoop().addTimer(self.loopTheme.timer!, forMode: NSRunLoopCommonModes)
         }
 }

@@ -251,8 +251,8 @@
 		9FF7FF821C945E5C009142D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9FA8969B1C86302500AEF51F /* Main.storyboard */,
 				9FA896991C86302500AEF51F /* AlarmViewController.swift */,
+				9FA8969B1C86302500AEF51F /* Main.storyboard */,
 				9F4B63271CBA6E7E00284E3C /* Configure Screen */,
 			);
 			name = Views;

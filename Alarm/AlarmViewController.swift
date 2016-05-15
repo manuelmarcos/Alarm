@@ -32,6 +32,7 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
     @IBOutlet var setButton: UIButton!
     @IBOutlet var stopButton: UIButton!
     @IBOutlet var alarmFileNamesLabel: UILabel!
+    @IBOutlet var configSettingsLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
     var alarm: Alarm?
     var currentDim: CGFloat?
