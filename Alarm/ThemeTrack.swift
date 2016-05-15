@@ -11,6 +11,7 @@ import Foundation
 class ThemeTrack: AudioTrack {
 
     func play(timer: NSTimer) {
+        print("ThemeTrackPlay")
         if let userInfo = timer.userInfo as? Dictionary<String, AnyObject>,
             let fadeToDuration: NSTimeInterval = userInfo["fadeToDuration"] as? NSTimeInterval {
             // set the fade in here
@@ -20,6 +21,7 @@ class ThemeTrack: AudioTrack {
     }
 
     func playNow() {
+        print("ThemeTrackPlayNow")
         self.audioPlayer?.play()
     }
 

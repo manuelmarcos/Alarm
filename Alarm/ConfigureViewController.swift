@@ -112,7 +112,7 @@ class ConfigureViewController: UIViewController {
         let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), length:0, startVolume:0.01, finishVolume:self.themeVolumeSlider.value, numberOfLoops:0, fadeInDuration: self.crossfadeSlider.value)
 
 
-        let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!)Loop.mp3", startMinute:0, length:0, startVolume:0.8, finishVolume:self.themeVolumeSlider.value, numberOfLoops:-1, fadeInDuration: 0.0)
+        let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!)Loop.mp3", startMinute:0, length:0, startVolume:self.themeVolumeSlider.value, finishVolume:self.themeVolumeSlider.value, numberOfLoops:-1, fadeInDuration: 0.0)
 
         self.delegate.configurationAlarm( Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme))
 

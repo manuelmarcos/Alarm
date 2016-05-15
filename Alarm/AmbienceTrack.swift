@@ -11,6 +11,7 @@ import Foundation
 class AmbienceTrack: AudioTrack {
 
     func play(timer: NSTimer) {
+        print("AmbienceTrackPlay")
         if let userInfo = timer.userInfo as? Dictionary<String, AnyObject>,
             let fadeToDuration: NSTimeInterval = userInfo["fadeToDuration"] as? NSTimeInterval {
             // set the fade in here
@@ -19,6 +20,7 @@ class AmbienceTrack: AudioTrack {
         }
     }
     func stop(timer: NSTimer) {
+        print("AmbienceTrackStop")
         if let userInfo = timer.userInfo as? Dictionary<String, AnyObject>,
             let fadeToDuration: NSTimeInterval = userInfo["fadeToDuration"] as? NSTimeInterval {
             audioPlayer?.fadeIn(fadeToDuration, fromVolume: self.finishVolume, toVolume: 0.0)
