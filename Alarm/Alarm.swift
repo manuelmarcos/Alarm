@@ -67,6 +67,8 @@ class Alarm: NSObject {
             self.theme.timer = nil
             self.loopTheme.timer?.invalidate()
             self.loopTheme.timer = nil
+            self.stopAmbienceTimer?.invalidate()
+            self.stopAmbienceTimer = nil
         }
     }
 

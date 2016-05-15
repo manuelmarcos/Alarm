@@ -29,6 +29,8 @@ extension NSDate {
 
 class AlarmViewController: UIViewController, ConfigurationAlarm {
     @IBOutlet var alarmLabel: UILabel!
+    @IBOutlet var setButton: UIButton!
+    @IBOutlet var stopButton: UIButton!
     @IBOutlet var alarmFileNamesLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
     var alarm: Alarm?
@@ -55,7 +57,7 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
         // Debugging code
         let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"birdies.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.95, numberOfLoops:-1)
         let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"theme1.mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.95, numberOfLoops:0)
-        let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:0.95, numberOfLoops:-1)
+        let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, startVolume:0.95, finishVolume:0.95, numberOfLoops:-1)
         alarm = Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme)
 
     }
@@ -89,7 +91,8 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
             if (pickerDate.isEqualToDate(currentDate) || currentDate.isGreaterThanDate(pickerDate)) {
                 AlertsUtils.showAlertWithErrorMessage("Cannot set alarm. Try setting alarm one minute ahead of your current time")
             } else {
-                self.alarmLabel.text = "Alarm set \(pickerDate))"
+                self.alarmLabel.text = "Alarm set \(pickerDate.descriptionWithLocale(NSLocale.systemLocale())))"
+                self.setButton.enabled = false
                 alarm?.setAlarmDate(pickerDate)
             }
         } else {
@@ -98,7 +101,9 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
     }
 
     @IBAction func stop(sender: AnyObject) {
+        self.alarmLabel.text = "no alarm set"
         alarm?.stop()
+        self.setButton.enabled = true
     }
 
     @IBAction func SwitchChangedAction(sender: UISwitch) {

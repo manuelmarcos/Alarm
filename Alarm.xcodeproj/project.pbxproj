@@ -123,20 +123,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9F4B63271CBA6E7E00284E3C /* Alpha 3 */ = {
+		9F4B63271CBA6E7E00284E3C /* Configure Screen */ = {
 			isa = PBXGroup;
 			children = (
 				9F8ABA0C1C9464E0009DE4D3 /* ConfigureViewController.swift */,
 				9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */,
 			);
-			name = "Alpha 3";
-			sourceTree = "<group>";
-		};
-		9F4B63281CBA7AD700284E3C /* Alpha 4 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Alpha 4";
+			name = "Configure Screen";
 			sourceTree = "<group>";
 		};
 		9F4B632A1CBA7E1100284E3C /* Pre-Alarm */ = {
@@ -260,8 +253,7 @@
 			children = (
 				9FA8969B1C86302500AEF51F /* Main.storyboard */,
 				9FA896991C86302500AEF51F /* AlarmViewController.swift */,
-				9F4B63281CBA7AD700284E3C /* Alpha 4 */,
-				9F4B63271CBA6E7E00284E3C /* Alpha 3 */,
+				9F4B63271CBA6E7E00284E3C /* Configure Screen */,
 			);
 			name = Views;
 			sourceTree = "<group>";

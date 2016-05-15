@@ -9,9 +9,21 @@
 import Foundation
 import UIKit
 
+extension Float {
+    var cleanValue: String {
+        return String(format: "%.0f", self)
+    }
+}
+
 class ConfigureViewController: UIViewController {
     @IBOutlet var ambientSegmentedControl: UISegmentedControl!
     @IBOutlet var themeSegmentedControl: UISegmentedControl!
+    @IBOutlet var ambienceVolumeSlider: UISlider!
+    @IBOutlet var ambienceVolumeLabel: UILabel!
+    @IBOutlet var themeVolumeSlider: UISlider!
+    @IBOutlet var themeVolumeLabel: UILabel!
+    @IBOutlet var ambienceTimeSlider: UISlider!
+    @IBOutlet var ambienceTimeLabel: UILabel!
 
     var audioPlayer: AudioPlayerManager?
 
@@ -31,13 +43,31 @@ class ConfigureViewController: UIViewController {
         self.themeSegmentedControl.setTitle("theme3", forSegmentAtIndex: 2)
     }
 
+    @IBAction func ambienteTimeValueChanged(sender: AnyObject) {
+        let rounded = round(self.ambienceTimeSlider.value)
+        self.ambienceTimeSlider.setValue(rounded, animated: true)
+        self.ambienceTimeLabel.text = "Ambience time \(rounded.cleanValue)"
+
+    }
+
+    @IBAction func ambienteVolumeValueChangedAction(sender: AnyObject) {
+        let floatSlideValue = (self.ambienceVolumeSlider.value * 100) / 1
+        self.ambienceVolumeLabel.text = "Ambience Volume \(floatSlideValue.cleanValue)%"
+    }
+
+    @IBAction func themeVolumeValueChangedAction(sender: AnyObject) {
+        let floatSlideValue = (self.themeVolumeSlider.value * 100) / 1
+        self.themeVolumeLabel.text = "Theme Volume \(floatSlideValue.cleanValue)%"
+    }
+
     func doneAction () {
 
-            let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"\(self.ambientSegmentedControl.titleForSegmentAtIndex(ambientSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.9, numberOfLoops:-1)
-            let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:0.8, numberOfLoops:0)
+
+            let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"\(self.ambientSegmentedControl.titleForSegmentAtIndex(ambientSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:self.ambienceVolumeSlider.value, numberOfLoops:-1)
+            let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:self.themeVolumeSlider.value, numberOfLoops:0)
 
 
-            let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!)Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:0.8, numberOfLoops:-1)
+            let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!)Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:self.themeVolumeSlider.value, numberOfLoops:-1)
             self.delegate.configurationAlarm( Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme))
 
             self.dismissViewControllerAnimated(true, completion: nil)
