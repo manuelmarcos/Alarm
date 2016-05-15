@@ -18,16 +18,18 @@ class AudioTrack: NSObject {
     var audioTrackType: AudioTrackType // we might not ever need this but useful if instrospection is needed
     var fileName: String
     var startMinute: NSTimeInterval
+    var lengthTrack: Float
     var startVolume: Float
     var finishVolume: Float
     var audioPlayer: AudioPlayerManager?
     var timer: NSTimer?
     var numberOfLoops: NSInteger
 
-    init(type: AudioTrackType, fileName: String, startMinute: NSTimeInterval, startVolume: Float, finishVolume: Float, numberOfLoops: NSInteger) {
+    init(type: AudioTrackType, fileName: String, startMinute: NSTimeInterval, length: Float, startVolume: Float, finishVolume: Float, numberOfLoops: NSInteger) {
         self.audioTrackType = type
         self.fileName = fileName
         self.startMinute = startMinute
+        self.lengthTrack = length
         self.startVolume = startVolume
         self.finishVolume = finishVolume
         self.numberOfLoops = numberOfLoops
@@ -38,9 +40,5 @@ class AudioTrack: NSObject {
         } catch {
             print("oh-oh")
         }
-
-        ///     public typealias SoundCompletionHandler = (didFinish: Bool) -> Void
-        self.audioPlayer?.completionHandler
-
     }
 }

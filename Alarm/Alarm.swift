@@ -29,11 +29,11 @@ class Alarm: NSObject {
         }
 
         // This method would stop the ambience sound by doing a fadeout
-        self.stopAmbienceTimer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval((5 * 60) - 60), interval: 0, target: self.ambient, selector: #selector(self.ambient.stop), userInfo: nil, repeats: false)
+        self.stopAmbienceTimer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(Double(self.ambient.lengthTrack * 60) - 60), interval: 0, target: self.ambient, selector: #selector(self.ambient.stop), userInfo: nil, repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.stopAmbienceTimer!, forMode: NSRunLoopCommonModes)
 
         // TODO: Move this to the set method of timer for each ambient
-        self.ambient.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(0), interval: 0.0, target: self.ambient, selector:#selector(self.ambient.play), userInfo: ["fadeToDuration" : 120], repeats: false)
+        self.ambient.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval(0), interval: 0.0, target: self.ambient, selector:#selector(self.ambient.play), userInfo: ["fadeToDuration" : ambient.fadeInDuration], repeats: false)
         NSRunLoop.mainRunLoop().addTimer(self.ambient.timer!, forMode: NSRunLoopCommonModes)
 
           self.theme.timer = NSTimer(fireDate: dateSet.dateByAddingTimeInterval((5 * 60) - 60), interval: 0.0, target: self.theme, selector: #selector(self.theme.play), userInfo: ["fadeToDuration" : 120], repeats: false)

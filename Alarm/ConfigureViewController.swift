@@ -24,6 +24,8 @@ class ConfigureViewController: UIViewController {
     @IBOutlet var themeVolumeLabel: UILabel!
     @IBOutlet var ambienceTimeSlider: UISlider!
     @IBOutlet var ambienceTimeLabel: UILabel!
+    @IBOutlet var ambienceFadeInSlider: UISlider!
+    @IBOutlet var ambienceFadeInLabel: UILabel!
 
     var audioPlayer: AudioPlayerManager?
 
@@ -43,11 +45,33 @@ class ConfigureViewController: UIViewController {
         self.themeSegmentedControl.setTitle("theme3", forSegmentAtIndex: 2)
     }
 
+    @IBAction func ambienceFadeInValueChanged(sender: AnyObject) {
+        let rounded = round(self.ambienceFadeInSlider.value)
+        self.ambienceFadeInLabel.text = "Fade In Ambience Time \(rounded.cleanValue)"
+
+    }
+
+    @IBAction func ambienceFadeInTouchUpInsideAction(sender: AnyObject) {
+        let rounded = round(self.ambienceFadeInSlider.value)
+        self.ambienceFadeInSlider.setValue(rounded, animated: true)
+    }
+
     @IBAction func ambienteTimeValueChanged(sender: AnyObject) {
         let rounded = round(self.ambienceTimeSlider.value)
-        self.ambienceTimeSlider.setValue(rounded, animated: true)
         self.ambienceTimeLabel.text = "Ambience time \(rounded.cleanValue)"
+    }
 
+    @IBAction func ambienteTimeTouchUpInsideAction(sender: AnyObject) {
+        let rounded = round(self.ambienceTimeSlider.value)
+        self.ambienceTimeSlider.setValue(rounded, animated: true)
+
+        if self.ambienceFadeInSlider.value > self.ambienceTimeSlider.value {
+            self.ambienceFadeInSlider.value = self.ambienceTimeSlider.value
+            let rounded = round(self.ambienceFadeInSlider.value)
+            self.ambienceFadeInLabel.text = "Fade In Ambience Time \(rounded.cleanValue)"
+        }
+        // The maximun value of the fade in will be the value of the ambience time, in other words it will bethe lenght of the track
+        self.ambienceFadeInSlider.maximumValue = self.ambienceTimeSlider.value
     }
 
     @IBAction func ambienteVolumeValueChangedAction(sender: AnyObject) {
@@ -63,11 +87,11 @@ class ConfigureViewController: UIViewController {
     func doneAction () {
 
 
-            let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"\(self.ambientSegmentedControl.titleForSegmentAtIndex(ambientSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:self.ambienceVolumeSlider.value, numberOfLoops:-1)
-            let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), startVolume:0.01, finishVolume:self.themeVolumeSlider.value, numberOfLoops:0)
+        let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"\(self.ambientSegmentedControl.titleForSegmentAtIndex(ambientSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), length:round(self.ambienceTimeSlider.value), startVolume:0.01, finishVolume:self.ambienceVolumeSlider.value, numberOfLoops:-1, fadeInDuration: self.ambienceFadeInSlider.value * 60)
+            let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!).mp3", startMinute:NSTimeInterval(1 * 60), length:0, startVolume:0.01, finishVolume:self.themeVolumeSlider.value, numberOfLoops:0)
 
 
-            let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!)Loop.mp3", startMinute:0, startVolume:0.8, finishVolume:self.themeVolumeSlider.value, numberOfLoops:-1)
+            let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!)Loop.mp3", startMinute:0, length:0, startVolume:0.8, finishVolume:self.themeVolumeSlider.value, numberOfLoops:-1)
             self.delegate.configurationAlarm( Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme))
 
             self.dismissViewControllerAnimated(true, completion: nil)

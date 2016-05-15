@@ -103,7 +103,7 @@
                                             <action selector="themeVolumeValueChangedAction:" destination="6re-10-Cfm" eventType="valueChanged" id="JUM-c5-BMh"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambiente time 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-u6-CF7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambience time 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-u6-CF7">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -112,7 +112,21 @@
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="98w-Og-AAD">
                                         <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
                                         <connections>
-                                            <action selector="ambienteTimeValueChanged:" destination="6re-10-Cfm" eventType="touchUpInside" id="moT-Cf-0AA"/>
+                                            <action selector="ambienteTimeTouchUpInsideAction:" destination="6re-10-Cfm" eventType="touchUpInside" id="UWR-Ek-3yx"/>
+                                            <action selector="ambienteTimeValueChanged:" destination="6re-10-Cfm" eventType="valueChanged" id="VOi-6U-YQj"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fade In Ambience Time 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps8-2n-Ym1">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hd6-j9-KKD">
+                                        <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                        <connections>
+                                            <action selector="ambienceFadeInTouchUpInsideAction:" destination="6re-10-Cfm" eventType="touchUpInside" id="gil-iA-TQO"/>
+                                            <action selector="ambienceFadeInValueChanged:" destination="6re-10-Cfm" eventType="valueChanged" id="rYU-7S-UEe"/>
                                         </connections>
                                     </slider>
                                 </subviews>
@@ -130,18 +144,23 @@
                                     <constraint firstItem="fnQ-aa-Qfd" firstAttribute="leading" secondItem="m8I-C4-6Os" secondAttribute="trailing" constant="30" id="KYs-cp-GGh"/>
                                     <constraint firstItem="Iht-fS-j8X" firstAttribute="leading" secondItem="Srg-VU-tYR" secondAttribute="trailing" constant="30" id="KvS-A8-MOy"/>
                                     <constraint firstItem="98w-Og-AAD" firstAttribute="centerX" secondItem="SQh-Jh-B7x" secondAttribute="centerX" id="N3Y-QK-aY2"/>
+                                    <constraint firstItem="Hd6-j9-KKD" firstAttribute="leading" secondItem="SQh-Jh-B7x" secondAttribute="leading" constant="16" id="RHF-Qj-LxG"/>
                                     <constraint firstItem="r1x-AZ-ygp" firstAttribute="centerX" secondItem="SQh-Jh-B7x" secondAttribute="centerX" id="St5-Ed-NFs"/>
                                     <constraint firstItem="m8I-C4-6Os" firstAttribute="top" secondItem="fnQ-aa-Qfd" secondAttribute="top" id="VtC-VP-GWH"/>
                                     <constraint firstItem="VQ9-u6-CF7" firstAttribute="centerX" secondItem="SQh-Jh-B7x" secondAttribute="centerX" id="XDR-mu-S76"/>
                                     <constraint firstItem="hnb-oK-qC3" firstAttribute="leading" secondItem="SQh-Jh-B7x" secondAttribute="leading" constant="16" id="Y7m-YY-EAS"/>
-                                    <constraint firstAttribute="bottom" secondItem="98w-Og-AAD" secondAttribute="bottom" constant="456" id="YFe-ih-Oan"/>
+                                    <constraint firstItem="ps8-2n-Ym1" firstAttribute="top" secondItem="98w-Og-AAD" secondAttribute="bottom" constant="8" id="Yt6-1N-DMy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hd6-j9-KKD" secondAttribute="trailing" constant="16" id="a5Z-jI-F6q"/>
                                     <constraint firstItem="hnb-oK-qC3" firstAttribute="top" secondItem="v60-98-QGr" secondAttribute="bottom" constant="8" id="aJG-LY-XmO"/>
+                                    <constraint firstItem="Hd6-j9-KKD" firstAttribute="top" secondItem="ps8-2n-Ym1" secondAttribute="bottom" constant="8" id="bdi-FA-7DN"/>
                                     <constraint firstItem="m8I-C4-6Os" firstAttribute="leading" secondItem="Srg-VU-tYR" secondAttribute="leading" id="dsp-yz-vbQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hd6-j9-KKD" secondAttribute="bottom" constant="389" id="eTl-mN-ekK"/>
                                     <constraint firstItem="98w-Og-AAD" firstAttribute="leading" secondItem="SQh-Jh-B7x" secondAttribute="leading" constant="16" id="g4h-r2-OQx"/>
                                     <constraint firstItem="v60-98-QGr" firstAttribute="top" secondItem="knZ-5V-l69" secondAttribute="bottom" constant="8" id="gu0-fB-jzA"/>
                                     <constraint firstItem="m8I-C4-6Os" firstAttribute="leading" secondItem="SQh-Jh-B7x" secondAttribute="leadingMargin" id="gwH-Ec-UxK"/>
                                     <constraint firstItem="v60-98-QGr" firstAttribute="centerX" secondItem="SQh-Jh-B7x" secondAttribute="centerX" id="hEv-p6-hJ1"/>
                                     <constraint firstAttribute="trailing" secondItem="Iht-fS-j8X" secondAttribute="trailing" constant="16" id="hy9-E2-GXC"/>
+                                    <constraint firstItem="ps8-2n-Ym1" firstAttribute="centerX" secondItem="SQh-Jh-B7x" secondAttribute="centerX" id="j8L-dh-ntk"/>
                                     <constraint firstAttribute="trailing" secondItem="fnQ-aa-Qfd" secondAttribute="trailing" constant="16" id="mT9-rn-IzX"/>
                                     <constraint firstItem="VQ9-u6-CF7" firstAttribute="top" secondItem="hnb-oK-qC3" secondAttribute="bottom" constant="8" id="nBx-3T-QuQ"/>
                                     <constraint firstItem="knZ-5V-l69" firstAttribute="top" secondItem="Ak8-oi-4C7" secondAttribute="bottom" constant="18" id="okM-3t-MZ1">
@@ -179,6 +198,8 @@
                                         <exclude reference="hnb-oK-qC3"/>
                                         <exclude reference="VQ9-u6-CF7"/>
                                         <exclude reference="98w-Og-AAD"/>
+                                        <exclude reference="ps8-2n-Ym1"/>
+                                        <exclude reference="Hd6-j9-KKD"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="6UV-iO-a5t"/>
@@ -194,17 +215,16 @@
                                         <exclude reference="okM-3t-MZ1"/>
                                         <exclude reference="uw0-6M-7Uv"/>
                                         <exclude reference="yLW-kb-EEK"/>
-                                        <exclude reference="IId-Af-ayC"/>
-                                        <exclude reference="wgQ-Lr-fuo"/>
                                         <exclude reference="5BC-Nt-Psc"/>
                                         <exclude reference="oxT-Cy-MQd"/>
+                                        <exclude reference="IId-Af-ayC"/>
+                                        <exclude reference="wgQ-Lr-fuo"/>
                                         <exclude reference="CYv-Ep-VVU"/>
                                         <exclude reference="Y7m-YY-EAS"/>
                                         <exclude reference="aJG-LY-XmO"/>
                                         <exclude reference="gu0-fB-jzA"/>
                                         <exclude reference="hEv-p6-hJ1"/>
                                         <exclude reference="N3Y-QK-aY2"/>
-                                        <exclude reference="YFe-ih-Oan"/>
                                         <exclude reference="g4h-r2-OQx"/>
                                         <exclude reference="rX8-kz-9Cs"/>
                                         <exclude reference="zdl-mA-sNB"/>
@@ -212,8 +232,14 @@
                                         <exclude reference="nBx-3T-QuQ"/>
                                         <exclude reference="KYs-cp-GGh"/>
                                         <exclude reference="mT9-rn-IzX"/>
+                                        <exclude reference="Yt6-1N-DMy"/>
+                                        <exclude reference="j8L-dh-ntk"/>
                                         <exclude reference="KvS-A8-MOy"/>
                                         <exclude reference="hy9-E2-GXC"/>
+                                        <exclude reference="RHF-Qj-LxG"/>
+                                        <exclude reference="a5Z-jI-F6q"/>
+                                        <exclude reference="bdi-FA-7DN"/>
+                                        <exclude reference="eTl-mN-ekK"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -230,6 +256,8 @@
                                         <include reference="hnb-oK-qC3"/>
                                         <include reference="VQ9-u6-CF7"/>
                                         <include reference="98w-Og-AAD"/>
+                                        <include reference="ps8-2n-Ym1"/>
+                                        <include reference="Hd6-j9-KKD"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="6UV-iO-a5t"/>
@@ -245,17 +273,16 @@
                                         <include reference="okM-3t-MZ1"/>
                                         <include reference="uw0-6M-7Uv"/>
                                         <include reference="yLW-kb-EEK"/>
-                                        <include reference="IId-Af-ayC"/>
-                                        <include reference="wgQ-Lr-fuo"/>
                                         <include reference="5BC-Nt-Psc"/>
                                         <include reference="oxT-Cy-MQd"/>
+                                        <include reference="IId-Af-ayC"/>
+                                        <include reference="wgQ-Lr-fuo"/>
                                         <include reference="CYv-Ep-VVU"/>
                                         <include reference="Y7m-YY-EAS"/>
                                         <include reference="aJG-LY-XmO"/>
                                         <include reference="gu0-fB-jzA"/>
                                         <include reference="hEv-p6-hJ1"/>
                                         <include reference="N3Y-QK-aY2"/>
-                                        <include reference="YFe-ih-Oan"/>
                                         <include reference="g4h-r2-OQx"/>
                                         <include reference="rX8-kz-9Cs"/>
                                         <include reference="zdl-mA-sNB"/>
@@ -263,8 +290,14 @@
                                         <include reference="nBx-3T-QuQ"/>
                                         <include reference="KYs-cp-GGh"/>
                                         <include reference="mT9-rn-IzX"/>
+                                        <include reference="Yt6-1N-DMy"/>
+                                        <include reference="j8L-dh-ntk"/>
                                         <include reference="KvS-A8-MOy"/>
                                         <include reference="hy9-E2-GXC"/>
+                                        <include reference="RHF-Qj-LxG"/>
+                                        <include reference="a5Z-jI-F6q"/>
+                                        <include reference="bdi-FA-7DN"/>
+                                        <include reference="eTl-mN-ekK"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -302,6 +335,8 @@
                     <navigationItem key="navigationItem" id="K0k-ga-E49"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="ambienceFadeInLabel" destination="ps8-2n-Ym1" id="ctD-eG-fEZ"/>
+                        <outlet property="ambienceFadeInSlider" destination="Hd6-j9-KKD" id="bsA-Uy-Ucd"/>
                         <outlet property="ambienceTimeLabel" destination="VQ9-u6-CF7" id="bJZ-8b-xaz"/>
                         <outlet property="ambienceTimeSlider" destination="98w-Og-AAD" id="AUV-yg-gTz"/>
                         <outlet property="ambienceVolumeLabel" destination="Ak8-oi-4C7" id="9Sx-Mg-Um0"/>
