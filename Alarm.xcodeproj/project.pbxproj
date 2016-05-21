@@ -15,8 +15,6 @@
 		9F4B63361CBA7E9B00284E3C /* theme3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63301CBA7E9B00284E3C /* theme3.mp3 */; };
 		9F4B63371CBA7E9B00284E3C /* theme3Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63311CBA7E9B00284E3C /* theme3Loop.mp3 */; };
 		9F4B633B1CBA7EBC00284E3C /* birdies.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63381CBA7EBC00284E3C /* birdies.mp3 */; };
-		9F4B633C1CBA7EBC00284E3C /* canyon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B63391CBA7EBC00284E3C /* canyon.mp3 */; };
-		9F4B633D1CBA7EBC00284E3C /* woodenChime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */; };
 		9F5DFF681CC568CD00CC4CA0 /* AmbienceTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DFF671CC568CD00CC4CA0 /* AmbienceTrack.swift */; };
 		9F5DFF6A1CC5695D00CC4CA0 /* ThemeTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DFF691CC5695D00CC4CA0 /* ThemeTrack.swift */; };
 		9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */; };
@@ -32,6 +30,8 @@
 		9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FA896A01C86302500AEF51F /* LaunchScreen.storyboard */; };
 		9FA896AD1C86302500AEF51F /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896AC1C86302500AEF51F /* AlarmTests.swift */; };
 		9FA896B81C86302500AEF51F /* AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA896B71C86302500AEF51F /* AlarmUITests.swift */; };
+		9FCCE1A61CF117C600ACED23 /* woodenChime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FCCE1A51CF117C600ACED23 /* woodenChime.mp3 */; };
+		9FCCE1A81CF117D600ACED23 /* canyon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FCCE1A71CF117D600ACED23 /* canyon.mp3 */; };
 		B8078AEDC7E3948D05360849 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1ED0B4611F74D735DFD3EB /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +64,6 @@
 		9F4B63301CBA7E9B00284E3C /* theme3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme3.mp3; sourceTree = "<group>"; };
 		9F4B63311CBA7E9B00284E3C /* theme3Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme3Loop.mp3; sourceTree = "<group>"; };
 		9F4B63381CBA7EBC00284E3C /* birdies.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = birdies.mp3; sourceTree = "<group>"; };
-		9F4B63391CBA7EBC00284E3C /* canyon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = canyon.mp3; sourceTree = "<group>"; };
-		9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = woodenChime.mp3; sourceTree = "<group>"; };
 		9F5DFF671CC568CD00CC4CA0 /* AmbienceTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbienceTrack.swift; sourceTree = "<group>"; };
 		9F5DFF691CC5695D00CC4CA0 /* ThemeTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTrack.swift; sourceTree = "<group>"; };
 		9F8ABA0A1C9464B4009DE4D3 /* ConfigureViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConfigureViewController.storyboard; sourceTree = "<group>"; };
@@ -87,6 +85,8 @@
 		9FA896B31C86302500AEF51F /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA896B71C86302500AEF51F /* AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmUITests.swift; sourceTree = "<group>"; };
 		9FA896B91C86302500AEF51F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FCCE1A51CF117C600ACED23 /* woodenChime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = woodenChime.mp3; sourceTree = "<group>"; };
+		9FCCE1A71CF117D600ACED23 /* canyon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = canyon.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				9F4B63381CBA7EBC00284E3C /* birdies.mp3 */,
-				9F4B63391CBA7EBC00284E3C /* canyon.mp3 */,
-				9F4B633A1CBA7EBC00284E3C /* woodenChime.mp3 */,
+				9FCCE1A71CF117D600ACED23 /* canyon.mp3 */,
+				9FCCE1A51CF117C600ACED23 /* woodenChime.mp3 */,
 			);
 			name = "Pre-Alarm";
 			sourceTree = "<group>";
@@ -399,11 +399,11 @@
 				9FA896A21C86302500AEF51F /* LaunchScreen.storyboard in Resources */,
 				9F4B63351CBA7E9B00284E3C /* theme2Loop.mp3 in Resources */,
 				9F4B63371CBA7E9B00284E3C /* theme3Loop.mp3 in Resources */,
-				9F4B633D1CBA7EBC00284E3C /* woodenChime.mp3 in Resources */,
+				9FCCE1A81CF117D600ACED23 /* canyon.mp3 in Resources */,
+				9FCCE1A61CF117C600ACED23 /* woodenChime.mp3 in Resources */,
 				9FA8969F1C86302500AEF51F /* Assets.xcassets in Resources */,
 				9FA8969D1C86302500AEF51F /* Main.storyboard in Resources */,
 				9F4B63341CBA7E9B00284E3C /* theme2.mp3 in Resources */,
-				9F4B633C1CBA7EBC00284E3C /* canyon.mp3 in Resources */,
 				9F4B63361CBA7E9B00284E3C /* theme3.mp3 in Resources */,
 				9F8ABA0B1C9464B4009DE4D3 /* ConfigureViewController.storyboard in Resources */,
 				9F4B633B1CBA7EBC00284E3C /* birdies.mp3 in Resources */,
