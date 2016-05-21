@@ -43,4 +43,14 @@ class AudioTrack: NSObject {
             print("oh-oh")
         }
     }
+
+    func stopWithFadeOut(stopFadeOutTime: Float) {
+        print("AmbienceTrackstopWithFadeOut\((self.audioPlayer?.currentVolume())!)")
+        //if let userInfo = timer.userInfo as? Dictionary<String, AnyObject>,
+          //  let fadeToDuration: NSTimeInterval = userInfo["fadeToDuration"] as? NSTimeInterval {
+
+            audioPlayer?.stopWithFadeOut(NSTimeInterval(stopFadeOutTime), fromVolume: (self.audioPlayer?.currentVolume())!, toVolume: 0.0)
+
+        //}
+    }
 }

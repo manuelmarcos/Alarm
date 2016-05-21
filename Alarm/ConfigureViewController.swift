@@ -28,6 +28,8 @@ class ConfigureViewController: UIViewController {
     @IBOutlet var ambienceFadeInLabel: UILabel!
     @IBOutlet var crossfadeSlider: UISlider!
     @IBOutlet var crossfadeLabel: UILabel!
+    @IBOutlet var fadeOutSlider: UISlider!
+    @IBOutlet var fadeOutLabel: UILabel!
 
     var audioPlayer: AudioPlayerManager?
 
@@ -55,6 +57,9 @@ class ConfigureViewController: UIViewController {
         let rounded = round(self.ambienceFadeInSlider.value)
         self.ambienceFadeInLabel.text = "Fade In Ambience Time \(rounded.cleanValue) minute"
 
+    }
+    @IBAction func fadeOutValueChanged(sender: AnyObject) {
+        self.fadeOutLabel.text = "Fade Out \(self.fadeOutSlider.value.cleanValue) seconds"
     }
 
     @IBAction func ambienceFadeInTouchUpInsideAction(sender: AnyObject) {
@@ -114,7 +119,7 @@ class ConfigureViewController: UIViewController {
 
         let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"\(self.themeSegmentedControl.titleForSegmentAtIndex(themeSegmentedControl.selectedSegmentIndex)!)Loop.mp3", startMinute:0, length:0, startVolume:self.themeVolumeSlider.value, finishVolume:self.themeVolumeSlider.value, numberOfLoops:-1, fadeInDuration: 0.0)
 
-        self.delegate.configurationAlarm( Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme))
+        self.delegate.configurationAlarm( Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme, stopFadeOutTime: self.fadeOutSlider.value), configurationText: "\(self.ambienceVolumeLabel.text!), \(self.themeVolumeLabel.text!), \(self.ambienceTimeLabel.text!), \(self.ambienceFadeInLabel.text!), \(self.crossfadeLabel.text!), \(self.fadeOutLabel.text!)")
 
         self.dismissViewControllerAnimated(true, completion: nil)
 

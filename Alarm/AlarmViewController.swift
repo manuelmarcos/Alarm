@@ -7,7 +7,7 @@
 //
 
 protocol ConfigurationAlarm {
-    func configurationAlarm(alarm: Alarm)
+    func configurationAlarm(alarm: Alarm, configurationText: String)
 }
 
 import UIKit
@@ -37,10 +37,11 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
     var alarm: Alarm?
     var currentDim: CGFloat?
 
-    func configurationAlarm(alarm: Alarm) {
+    func configurationAlarm(alarm: Alarm, configurationText: String) {
         self.alarm = alarm
         if self.alarm?.ambient.fileName != nil &&  self.alarm?.theme.fileName != nil {
-            self.alarmFileNamesLabel.text = "Ambience Track: \((self.alarm?.ambient.fileName)!) Theme trach: \((self.alarm?.theme.fileName)!)"
+            self.alarmFileNamesLabel.text = "Ambience Track: \((self.alarm?.ambient.fileName)!) Theme track: \((self.alarm?.theme.fileName)!)"
+            self.configSettingsLabel.text = configurationText
 
         }
     }
@@ -59,7 +60,7 @@ class AlarmViewController: UIViewController, ConfigurationAlarm {
         let trackAmbient: AmbienceTrack = AmbienceTrack(type: AudioTrackType.Ambient, fileName:"birdies.mp3", startMinute:NSTimeInterval(1 * 60), length:0, startVolume:0.01, finishVolume:0.95, numberOfLoops:-1, fadeInDuration: 0.0)
         let trackTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Ambient, fileName:"theme1.mp3", startMinute:NSTimeInterval(1 * 60), length:0, startVolume:0.01, finishVolume:0.95, numberOfLoops:0, fadeInDuration: 0.0)
         let trackLoopTheme: ThemeTrack = ThemeTrack(type: AudioTrackType.Theme, fileName:"theme1Loop.mp3", startMinute:0, length:0, startVolume:0.95, finishVolume:0.95, numberOfLoops:-1, fadeInDuration: 0.0)
-        alarm = Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme)
+        //alarm = Alarm(ambient: trackAmbient, theme: trackTheme, loopTheme: trackLoopTheme)
 
     }
 

@@ -14,11 +14,13 @@ class Alarm: NSObject {
     var theme: ThemeTrack
     var loopTheme: ThemeTrack
     var stopAmbienceTimer: NSTimer?
+    var stopfadeOutTime: Float
 
-    init(ambient: AmbienceTrack, theme: ThemeTrack, loopTheme: ThemeTrack) {
+    init(ambient: AmbienceTrack, theme: ThemeTrack, loopTheme: ThemeTrack, stopFadeOutTime: Float) {
         self.ambient = ambient
         self.theme = theme
         self.loopTheme = loopTheme
+        self.stopfadeOutTime = stopFadeOutTime
     }
 
     func setAlarmDate(dateSet: NSDate) {
@@ -52,9 +54,23 @@ class Alarm: NSObject {
 
     func stop() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        self.ambient.audioPlayer?.stop()
-        self.theme.audioPlayer?.stop()
-        self.loopTheme.audioPlayer?.stop()
+        if self.ambient.audioPlayer?.playing == true {
+            self.ambient.stopWithFadeOut(self.stopfadeOutTime)
+        } else {
+            self.ambient.audioPlayer?.stop()
+        }
+
+        if self.theme.audioPlayer?.playing == true {
+            self.theme.stopWithFadeOut(self.stopfadeOutTime)
+        } else {
+            self.theme.audioPlayer?.stop()
+        }
+
+        if self.loopTheme.audioPlayer?.playing == true {
+            self.loopTheme.stopWithFadeOut(self.stopfadeOutTime)
+        } else {
+            self.loopTheme.audioPlayer?.stop()
+        }
 
         if (self.ambient.timer != nil &&
             self.theme.timer != nil &&

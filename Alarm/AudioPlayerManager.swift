@@ -145,6 +145,13 @@ public class AudioPlayerManager: NSObject {
         }
     }
 
+    public func currentVolume() -> Float {
+        guard let currentVolume = sound?.volume else {
+            return 0.0
+        }
+        return currentVolume
+    }
+
     public func fadeOut(duration: NSTimeInterval = 1.0) {
         volume = 0.0
         fadeTo(1.0, duration: duration)
@@ -153,6 +160,12 @@ public class AudioPlayerManager: NSObject {
     public func fadeIn(duration: NSTimeInterval = 1.0, fromVolume: Float, toVolume: Float) {
         targetVolume = toVolume
         fadeTo(fromVolume, duration: duration)
+    }
+
+    public func stopWithFadeOut(duration: NSTimeInterval = 1.0, fromVolume: Float, toVolume: Float) {
+        timer?.invalidate()
+        timer = nil
+        self.fadeIn(duration, fromVolume: fromVolume, toVolume: toVolume)
     }
 
     public func fadeIn(duration: NSTimeInterval = 1.0) {
